@@ -25,5 +25,5 @@ class ApiClient:
         return Pokedex(result)
     
     @property
-    def img(self=None):
+    def img(self):
         return Image()
