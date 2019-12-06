@@ -1,5 +1,6 @@
 class Pokedex:
     def __init__(self, data):
+        self.error = data['error']
         self.name = data['name']
         self.id = data['id']
         self.type = data['type']
