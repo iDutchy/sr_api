@@ -8,12 +8,9 @@ setup(
   author = 'Niels Steenman',
   author_email = 'ngssteenman@gmail.com',
   url = 'https://github.com/iDutchy',
-  download_url = 'https://github.com/user/reponame/archive/v_01.tar.gz',
+  download_url = 'https://github.com/iDutchy/sr_api/archive/v0.1.tar.gz',
   keywords = ['wrapper', 'api', 'random'],
-  install_requires=[            # I get to this in a second
-          'validators',
-          'beautifulsoup4',
-      ],
+  install_requires=['aiohttp'],
   classifiers=[
     'Development Status :: 5 - Production/Stable',
     'Intended Audience :: Developers',
