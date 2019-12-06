@@ -22,7 +22,8 @@ class ApiClient:
         result = await self.__call_api(f'pokedex?pokemon={name}')
         if 'error' in result:
             raise InputError(f'Pokémon "{name}" was not found.')
-        return Pokedex(result)
+        else:
+            return Pokedex(result)
     
     @property
     def img(self):
