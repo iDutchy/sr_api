@@ -20,10 +20,10 @@ class ApiClient:
 
     async def get_pokemon(self, name):
         result = await self.__call_api(f'pokedex?pokemon={name}')
-        if 'error' in result.keys():
-            raise InputError(f'Pokémon "{name}" was not found.')
-        else:
+        try:
             return Pokedex(result)
+        except KeyError:
+            raise InputError(f'Pokémon "{name}" was not found.')
     
     @property
     def img(self):
