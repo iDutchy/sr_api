@@ -1,8 +1,8 @@
 import aiohttp
 import json
 
-from Pokedex import Pokedex
-from Images import Image
+from sr_api.Pokedex import Pokedex
+from sr_api.Images import Image
 
 class ApiError(Exception):
     pass
