@@ -9,7 +9,7 @@ class Image:
                 return await r.json()
 
     async def __get_api_img(img):
-        base = await __call_api(f'img/{img}')
+        base = await self.__call_api(f'img/{img}')
         return base['link']
 
     @property
