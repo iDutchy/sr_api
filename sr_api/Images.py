@@ -3,14 +3,12 @@ import json
 
 class Image:
     
-    @property
     async def __call_api(self, endpoint):
         async with aiohttp.ClientSession() as c:
             async with c.get(f'https://some-random-api.ml/{endpoint}') as r:
                 return await r.json()
 
-    @property
-    async def __get_api_img(img):
+    async def __get_api_img(self, img):
         base = await self.__call_api(f'img/{img}')
         return base['link']
 
