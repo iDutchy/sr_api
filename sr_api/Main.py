@@ -20,7 +20,7 @@ class ApiClient:
 
     async def get_pokemon(self, name):
         result = await self.__call_api(f'pokedex?pokemon={name}')
-        if 'error' in result:
+        if 'error' in result.keys():
             raise InputError(f'Pokémon "{name}" was not found.')
         else:
             return Pokedex(result)
