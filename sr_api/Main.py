@@ -23,6 +23,7 @@ class ApiClient:
         if result['error']:
             raise InputError(f'Pokémon "{name}" was not found.')
         return Pokedex(result)
-
+    
+    @property
     def img(self):
         return Image()
