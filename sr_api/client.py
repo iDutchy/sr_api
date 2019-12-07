@@ -27,6 +27,12 @@ class Client:
     async def get_pokemon(self, name):
         response = await self._http_client.get(self.srapi_url("pokedex?pokemon=" + name))
         return Pokedex(response)
+    
+    async def get_fact(self, name):
+        response = await self._http_client.get(self.srapi_url("facts/" + name + "/"))
+        fact = response.get("fact")
+        
+        return fact
 
     async def close(self):
         await self._http_client.close()
