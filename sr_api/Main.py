@@ -28,5 +28,5 @@ class ApiClient:
     
     @classmethod
     async def img(self):
-        res = await self.__call_api('img/cat')
+        res = await self.__call_api(self, 'img/cat')
         return res['link']
