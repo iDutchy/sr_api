@@ -1,5 +1,6 @@
 from sr_api.http import HTTPClient
 from sr_api.image import Image
+from dr_api.pokedex import Pokedex
 
 class Client:
 
