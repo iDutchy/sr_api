@@ -17,6 +17,10 @@ class Client:
         url = response.get("link")
 
         return Image(self._http_client, url)
+    
+    async def get_pokemon(self, name):
+        response = await self._http_client.get(self.srapi_url("pokedex?pokemon=" + name))
+        return Pokedex(self._http_client, response)
 
     async def close(self):
         await self._http_client.close()
