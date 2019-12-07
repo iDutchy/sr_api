@@ -10,15 +10,12 @@ class ApiError(Exception):
 class InputError(Exception):
     pass
 
+async def __call_api(self, endpoint):
+    async with aiohttp.ClientSession() as c:
+        async with c.get(f'https://some-random-api.ml/{endpoint}') as r:
+            return await r.json()
 
 class ApiClient:
-    def __init__(self):
-        self.session = aiohttp.ClientSession()
-
-    async def __call_api(self, endpoint):
-        async with aiohttp.ClientSession() as c:
-            async with c.get(f'https://some-random-api.ml/{endpoint}') as r:
-                return await r.json()
 
     async def get_pokemon(self, name):
         try:
@@ -27,6 +24,6 @@ class ApiClient:
             raise InputError(f'Pokémon "{name}" was not found.')
     
     @classmethod
-    async def img(self):
-        res = await self.__call_api(self, 'img/cat')
+    async def img(self=None):
+        res = await __call_api('img/cat')
         return res['link']
