@@ -1,6 +1,8 @@
 from sr_api.http import HTTPClient
 from sr_api.image import Image
 
+class InputError(Exception):
+    pass
 
 class Client:
 
@@ -14,6 +16,8 @@ class Client:
         return self.SR_API_BASE + path
 
     async def get_image(self, name):
+        if not name in ["cat", "dog"]:
+            raise InputError(f"{name} is not a valid option.")
         response = await self._http_client.get(self.srapi_url("img/" + name + "/"))
         url = response.get("link")
 
