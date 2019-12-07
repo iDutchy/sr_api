@@ -2,6 +2,9 @@ from sr_api.http import HTTPClient
 from sr_api.image import Image
 from sr_api.pokedex import Pokedex
 
+class InputError(Exception):
+    pass
+
 class Client:
 
     # SR API BASE PATH
@@ -14,6 +17,8 @@ class Client:
         return self.SR_API_BASE + path
 
     async def get_image(self, name):
+        if not name in ["cat", "dog"]:
+            raise InputError(name + " is not a valid option!")
         response = await self._http_client.get(self.srapi_url("img/" + name + "/"))
         url = response.get("link")
 
