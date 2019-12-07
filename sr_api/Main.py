@@ -26,7 +26,7 @@ class ApiClient:
         except KeyError:
             raise InputError(f'Pokémon "{name}" was not found.')
     
-    @property
+    @classmethod
     async def img(self):
         res = await self.__call_api('img/cat')
         return res['link']
