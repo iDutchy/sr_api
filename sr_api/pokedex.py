@@ -1,7 +1,5 @@
-from sr_api.http import HTTPClient
-
 class Pokedex:
-    def __init__(self, http_client: HTTPClient, data):
+    def __init__(self, data):
         self.name = data['name']
         self.id = data['id']
         self.type = data['type']
