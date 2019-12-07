@@ -16,6 +16,8 @@ async def _call_api(self, endpoint):
             return await r.json()
 
 class ApiClient:
+    def __init__(self):
+        self.session = aiohttp.ClientSesstion()
 
     async def get_pokemon(self, name):
         try:
@@ -23,8 +25,8 @@ class ApiClient:
         except KeyError:
             raise InputError(f'Pokémon "{name}" was not found.')
     
-    @classmethod
-    async def img():
+    @property
+    async def img(self=None):
         #res = await _call_api('img/cat')
         #return res['link']
         return Image()
