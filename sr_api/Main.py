@@ -10,14 +10,14 @@ class ApiError(Exception):
 class InputError(Exception):
     pass
 
-async def _call_api(self, endpoint):
+async def _call_api(endpoint):
     async with aiohttp.ClientSession() as c:
         async with c.get(f'https://some-random-api.ml/{endpoint}') as r:
             return await r.json()
 
 class ApiClient:
 
-    async def get_pokemon(self=None, name):
+    async def get_pokemon(self=None, name=""):
         try:
             return Pokedex(await __call_api(f'pokedex?pokemon={name}')
         except KeyError:
