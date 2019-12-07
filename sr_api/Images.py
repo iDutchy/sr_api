@@ -1,24 +1,24 @@
 import aiohttp
 import json
 
-class Image:
-    
-    async def _call_api(self, endpoint):
-        async with aiohttp.ClientSession() as c:
-            async with c.get(f'https://some-random-api.ml/{endpoint}') as r:
-                return await r.json()
+async def _call_api(endpoint):
+    async with aiohttp.ClientSession() as c:
+        async with c.get(f'https://some-random-api.ml/{endpoint}') as r:
+            return await r.json()
+        
+async def __get_api_img(img):
+    base = await _call_api(f'img/{img}')
+    return base['link']
 
-    async def __get_api_img(self, img):
-        base = await self._call_api(f'img/{img}')
-        return base['link']
+class Image:
 
     @property
     def dog(self=None):
-        return await self._get_api_img('dog')
+        return await _get_api_img('dog')
 
     @property
     def cat(self=None):
-        return self._get_api_img('cat')
+        return _get_api_img('cat')
 
     @property
     def bird(self=None):
