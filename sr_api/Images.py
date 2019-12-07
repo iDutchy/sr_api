@@ -6,7 +6,7 @@ async def _call_api(endpoint):
         async with c.get(f'https://some-random-api.ml/{endpoint}') as r:
             return await r.json()
         
-async def __get_api_img(img):
+async def _get_api_img(img):
     base = await _call_api(f'img/{img}')
     return base['link']
 
