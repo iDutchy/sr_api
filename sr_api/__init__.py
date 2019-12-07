@@ -1,2 +1,1 @@
-from sr_api.Main import ApiClient
-from sr_api.Images import Image
+from sr_api.client import Client
