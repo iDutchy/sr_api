@@ -19,7 +19,7 @@ class ApiClient:
 
     async def get_pokemon(self=None, name=""):
         try:
-            return Pokedex(await _call_api(f'pokedex?pokemon={name}')
+            return Pokedex(await _call_api(f'pokedex?pokemon={name}'))
         except KeyError:
             raise InputError(f'Pokémon "{name}" was not found.')
     
