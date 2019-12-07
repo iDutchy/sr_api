@@ -29,4 +29,4 @@ class ApiClient:
     async def img(self=None):
         #res = await _call_api('img/cat')
         #return res['link']
-        return Image()
+        return Image(self)
