@@ -10,7 +10,7 @@ class ApiError(Exception):
 class InputError(Exception):
     pass
 
-async def __call_api(self, endpoint):
+async def _call_api(self, endpoint):
     async with aiohttp.ClientSession() as c:
         async with c.get(f'https://some-random-api.ml/{endpoint}') as r:
             return await r.json()
@@ -25,5 +25,5 @@ class ApiClient:
     
     @classmethod
     async def img(self=None):
-        res = await __call_api('img/cat')
+        res = await _call_api('img/cat')
         return res['link']
