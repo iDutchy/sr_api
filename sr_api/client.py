@@ -48,6 +48,16 @@ class Client:
         token = response.get("token")
                                                               
         return token
+    
+    async def get_gif(self, name):
+        options = ["wink", "pat", "hug"]
+        if not name in options and name != None:
+            raise InputError(name + " is not a valid option!")
+
+        response = await self._http_client.get(self.srapi_url("animu/" + name + "/"))
+        url = response.get("link")
+
+        return url
 
     async def close(self):
         await self._http_client.close()
