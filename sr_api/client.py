@@ -58,6 +58,13 @@ class Client:
         url = response.get("link")
 
         return Image(self._http_client, url)
+    
+    async def cb(self, text):
+        response = await self._http_client.get(self.srapi_url("chatbot?message=" + text.replace(" ", "+")))
+        res = response.get("response")
+        
+        return res
+        
 
     async def close(self):
         await self._http_client.close()
