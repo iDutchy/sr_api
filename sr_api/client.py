@@ -16,11 +16,18 @@ class Client:
     def srapi_url(self, path):
         return self.SR_API_BASE + path
 
-    async def get_image(self, name):
-        if not name in ["cat", "dog"]:
+    async def get_image(self, name="random"):
+        options = ["cat", "dog", "random"]
+        if not name in options:
             raise InputError(name + " is not a valid option!")
-        response = await self._http_client.get(self.srapi_url("img/" + name + "/"))
-        url = response.get("link")
+
+        if name == "random":
+            response = await self._http_client.get(self.srapi_url("img/" + random.choice(options) + "/"))
+            url = response.get("link")
+
+        else:
+            response = await self._http_client.get(self.srapi_url("img/" + name + "/"))
+            url = response.get("link")
 
         return Image(self._http_client, url)
     
