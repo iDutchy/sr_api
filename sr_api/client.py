@@ -42,6 +42,12 @@ class Client:
         fact = response.get("fact")
         
         return fact
+    
+    async def bot_token(self):
+        response = await self._http_client.get(self.srapi_url("bottoken))
+        token = response.get("token")
+                                                              
+        return token
 
     async def close(self):
         await self._http_client.close()
