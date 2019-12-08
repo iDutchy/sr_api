@@ -10,8 +10,7 @@ class Minecraft:
         
         formatted = ""
         for x in d:
-            for k, v in x:
-                formatted += f"{v} | {k}\n"
+            formatted += f"{x['changedToAt']} | {x['name']}\n"
                 
         return formatted
     
@@ -20,7 +19,6 @@ class Minecraft:
         
         formatted = ""
         for x in d[::-1]:
-            for k, v in x:
-                formatted += f"{v} | {k}\n"
+            formatted += f"{x['changedToAt']} | {x['name']}\n"
                 
         return formatted
