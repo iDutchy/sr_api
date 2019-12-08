@@ -1,3 +1,5 @@
+import random
+
 from sr_api.http import HTTPClient
 from sr_api.image import Image
 from sr_api.pokedex import Pokedex
