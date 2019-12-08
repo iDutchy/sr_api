@@ -57,7 +57,7 @@ class Client:
         response = await self._http_client.get(self.srapi_url("animu/" + name + "/"))
         url = response.get("link")
 
-        return url
+        return Image(self._http_client, url)
 
     async def close(self):
         await self._http_client.close()
