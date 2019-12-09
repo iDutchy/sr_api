@@ -10,7 +10,7 @@ class Minecraft:
         
         formatted = ""
         for x in d:
-            formatted += f"{x['changedToAt']} | {x['name']}\n"
+            formatted += f"{x['changedToAt'].replace('Origanal', 'Original')} | {x['name']}\n"
                 
         return formatted
     
@@ -19,6 +19,6 @@ class Minecraft:
         
         formatted = ""
         for x in d[::-1]:
-            formatted += f"{x['changedToAt']} | {x['name']}\n"
+            formatted += f"{x['changedToAt'].replace('Origanal', 'Original')} | {x['name']}\n"
                 
         return formatted
