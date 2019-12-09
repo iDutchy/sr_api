@@ -22,7 +22,7 @@ class Client:
         return self.SR_API_BASE + path
 
     async def get_image(self, name=None):
-        options = ["cat", "dog", "koala", "fox", "birb", "red_panda", "panda"]
+        options = ["cat", "dog", "koala", "fox", "birb", "red_panda", "panda", "racoon", "kangaroo"]
         if not name in options and name != None:
             raise InputError(name + " is not a valid option!")
 
@@ -43,7 +43,7 @@ class Client:
         return Pokedex(response)
     
     async def get_fact(self, name):
-        options = ["cat", "dog", "panda", "koala", "fox", "bird"]
+        options = ["cat", "dog", "panda", "koala", "fox", "bird", "racoon", "kangaroo", "elephant", "giraffe", "whale"]
         if not name in options:
             raise InputError(name + " is not a valid option!")
 
@@ -59,7 +59,7 @@ class Client:
         return token
     
     async def get_gif(self, name):
-        options = ["wink", "pat", "hug"]
+        options = ["wink", "pat", "hug", "face-palm"]
         if not name in options and name != None:
             raise InputError(name + " is not a valid option!")
 
