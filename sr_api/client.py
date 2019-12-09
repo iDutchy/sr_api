@@ -6,6 +6,7 @@ from sr_api.pokedex import Pokedex
 from sr_api.minecraft import Minecraft
 from sr_api.lyrics import Lyrics
 from sr_api.meme import Meme
+from sr_api.quote import Quote
 
 class InputError(Exception):
     pass
@@ -124,6 +125,11 @@ class Client:
         response = await self._http_client.get(self.srapi_url("meme"))
         
         return Meme(self._http_client, response)
+    
+    async def anime_quote(self):
+        response = await self._http_client.get(self.srapi_url("animu/quote"))
+        
+        return Quote(response)
 
     async def close(self):
         await self._http_client.close()
