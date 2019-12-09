@@ -5,6 +5,7 @@ from sr_api.image import Image
 from sr_api.pokedex import Pokedex
 from sr_api.minecraft import Minecraft
 from sr_api.lyrics import Lyrics
+from sr_api.meme import Meme
 
 class InputError(Exception):
     pass
@@ -61,7 +62,7 @@ class Client:
 
         return Image(self._http_client, url)
     
-    async def cb(self, text):
+    async def chatbot(self, text):
         response = await self._http_client.get(self.srapi_url("chatbot?message=" + text.replace(" ", "+")))
         res = response.get("response")
         
@@ -82,6 +83,35 @@ class Client:
         pika = response.get("link")
         
         return pika
+    
+    async def encode_binary(self, text):
+        response = await self._http_client.get(self.srapi_url("binary?text=" + text.replace(" ", "+")))
+        res = response.get("binary")
+        
+        return res
+    
+    async def decode_binary(self, text):
+        response = await self._http_client.get(self.srapi_url("binary?decode=" + text.replace(" ", "+")))
+        res = response.get("text")
+        
+        return res
+    
+    async def encode_base64(self, text):
+        response = await self._http_client.get(self.srapi_url("base64?encode=" + text.replace(" ", "+")))
+        res = response.get("base64")
+        
+        return res
+    
+    async def decode_base64(self, text):
+        response = await self._http_client.get(self.srapi_url("base64?decode=" + text.replace(" ", "+")))
+        res = response.get("text")
+        
+        return res
+    
+    async def get_meme(self):
+        response = await self._http_client.get(self.srapi_url("meme"))
+        
+        return Meme(response)
 
     async def close(self):
         await self._http_client.close()
