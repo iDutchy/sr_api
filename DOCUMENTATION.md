@@ -51,11 +51,13 @@ Get a random animal fact.
 ### *await* client.bot_token()
 ---
 Get a random bots token. *These are not real and can not be used to make a real bot*
+
 **Return type:** string
 
 ### *await* client.get_gif(option)
 ---
 Get a random funny gif.
+
 **Available options:** `wink`, `pat`, `hug`, `face-palm`
 
 **Parameters:**\
@@ -66,6 +68,7 @@ Get a random funny gif.
 ### *await* client.chatbot(text)
 ---
 Talk with the chatbot.
+
 **Parameters:**\
 **- text** *(string)*: Your line to the bot.
 
@@ -74,6 +77,7 @@ Talk with the chatbot.
 ### *await* client.mc_user(username)
 ---
 Get the username history and UUID from a minecraft user.
+
 **Parameters:**\
 **- username** *(string)*: Name of the minecraft user.
 
