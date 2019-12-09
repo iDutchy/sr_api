@@ -8,5 +8,5 @@ class Lyrics:
         
         
     async def save(self):
-        with open(self.title +  ".txt", 'wb') as f:
+        with open(self.title +  ".txt", 'w') as f:
             return f.write(self.lyrics)
