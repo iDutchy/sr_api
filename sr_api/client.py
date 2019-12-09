@@ -22,7 +22,7 @@ class Client:
         return self.SR_API_BASE + path
 
     async def get_image(self, name=None):
-        options = ["cat", "dog"]
+        options = ["cat", "dog", "koala", "fox", "birb", "red_panda", "panda"]
         if not name in options and name != None:
             raise InputError(name + " is not a valid option!")
 
@@ -38,9 +38,15 @@ class Client:
     
     async def get_pokemon(self, name):
         response = await self._http_client.get(self.srapi_url("pokedex?pokemon=" + name))
+        if "error" in response:
+            raise InputError("Pokémon " + name + " was not found")
         return Pokedex(response)
     
     async def get_fact(self, name):
+        options = ["cat", "dog", "panda", "koala", "fox", "bird"]
+        if not name in options:
+            raise InputError(name + " is not a valid option!")
+
         response = await self._http_client.get(self.srapi_url("facts/" + name))
         fact = response.get("fact")
         
@@ -71,10 +77,16 @@ class Client:
     async def mc_user(self, name):
         response = await self._http_client.get(self.srapi_url("mc?username=" + name))
         
+        if "error" in response:
+            raise InputError(response.get("error"))
+        
         return Minecraft(response)
     
     async def get_lyrics(self, title):
         response = await self._http_client.get(self.srapi_url("lyrics?title=" + title.replace(" ", "+")))
+        
+        if "error" in response:
+            raise InputError(response.get("error"))
         
         return Lyrics(response)
     
