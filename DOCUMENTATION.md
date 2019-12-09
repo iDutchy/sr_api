@@ -24,7 +24,7 @@ For future reference in this documentation: when referring to 'client' we refer 
   
 ## Using the wrapper:
  
-  
+All available endpoints you can use.
   
 ### *await* client.get_image(animal)
 ---
@@ -171,7 +171,7 @@ BETA Image manipulation for any image *url*.
 **Available options:** `gay`, `wasted`, `greyscale`, `invert`, `triggered`, `blur`, `blurple`, `glass`, `pixelate`, `sepia`, `spin`
 
 **Parameters:**\
-**- option** *(string)*: The type of image manipulation you want to use.
+**- option** *(string)*: The type of image manipulation you want to use.\
 **- url** *(string)*: The url from the image you want to manipulate.
 
 **Return type:** string (url)
