@@ -223,6 +223,7 @@ A link to the songs Genius page
 This will locally save a `.txt` file of the lyrics
 
 ### Meme
+---
 The object returned from `client.get_meme()`
 
 #### Meme.id
@@ -242,6 +243,7 @@ Locally save an image of the meme.\
 **Note:** 'filepath' requires a *full* path! e.g. `/home/John/meme.png`
 
 ### MCuser
+---
 The object returned from `client.mc_user()`
 
 #### MCuser.name
@@ -263,6 +265,7 @@ A pre formatted list of the users name history
 A pre formatted list of the users name history in reversed order
 
 ### Quote
+---
 The object returned from `client.anime_quote()`
 
 #### Quote.quote
@@ -275,6 +278,7 @@ The character the quote is from
 The anime show the character/quote is from
 
 ### Pokemon
+---
 The object returned from client.get_pokemon()
 
 #### Pokemon.name
