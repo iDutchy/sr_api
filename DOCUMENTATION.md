@@ -24,7 +24,7 @@ For future reference in this documentation: when referring to 'client' we refer 
 \
 ## Using the wrapper:
 \
-\
+
 \
 ### *await* client.get_image(option)
 ---
