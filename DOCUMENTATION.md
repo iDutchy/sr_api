@@ -1,6 +1,8 @@
 # SR_Api
 
 Welcome, and thank you for using this api wrapper! This wrapper is completely async! Please note that I am not the creator of some-random-api. I only made this api wrapper! I also want to thank ir-3 for helping me get started with this.
+
+For any questions and support for the wrapper, you can visit the [Discord support server](https://discord.gg/wZSH7pz "Devision")
  
 ## Getting Started:
 
