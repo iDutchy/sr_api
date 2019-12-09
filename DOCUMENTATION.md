@@ -82,3 +82,96 @@ Get the username history and UUID from a minecraft user.
 **- username** *(string)*: Name of the minecraft user.
 
 **Return type:** MCuser *(object)*
+
+### *await* client.get_pokemon(pokemon)
+---
+Search for a pokemon in the pokedex.
+
+**Parameters:**\
+**- pokemon** *(string)*: Name of the pokémon.
+
+**Return type:** Pokemon *(object)*
+
+### *await* client.get_pikachu()
+---
+Get a random pikachu image.
+
+**Return type:** string (url)
+
+### *await* client.encode_binary(text)
+---
+Encode text in binary.
+
+**Parameters:**\
+**- text** *(string)*: Text you want to encode.
+
+**Return type:** string
+
+### *await* client.decode_binary(binary)
+---
+Decode binary to text.
+
+**Parameters:**\
+**- binary** *(string)*: Binary you want to decode.
+
+**Return type:** string
+
+### *await* client.encode_base64(text)
+---
+Encode text in base64.
+
+**Parameters:**\
+**- text** *(string)*: Text you want to encode.
+
+**Return type:** string
+
+### *await* client.decode_base64(text)
+---
+Decode base64 to text.
+
+**Parameters:**\
+**- text** *(string)*: Text you want to decode.
+
+**Return type:** string
+
+### *await* client.get_lyrics(title)
+---
+Get the lyrics from a song.
+
+**Parameters:**\
+**- title** *(string)*: Title of the song you want to get lyrics from.
+
+**Return type:** Lyrics *(object)*
+
+### *await* client.get_meme()
+---
+Get a random meme.
+
+**Return type:** Meme *(object)*
+
+### *await* client.anime_quote()
+---
+Get a random quote from an anime.
+
+**Return type:** Quote *(object)*
+
+### *await* client.define(word)
+---
+Get the definition from a word.
+
+**Parameters:**\
+**- word** *(string)*: The word you want to define.
+
+**Return type:** Definition *(object)*
+
+### *await* client.beta(option, url)
+---
+BETA Image manipulation for any image *url*.
+
+**Available options:** `gay`, `wasted`, `greyscale`, `invert`, `triggered`, `blur`, `blurple`, `glass`, `pixelate`, `sepia`, `spin`
+
+**Parameters:**\
+**- option** *(string)*: The type of image manipulation you want to use.
+**- url** *(string)*: The url from the image you want to manipulate.
+
+**Return type:** string (url)
