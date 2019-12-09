@@ -4,6 +4,7 @@ from sr_api.http import HTTPClient
 from sr_api.image import Image
 from sr_api.pokedex import Pokedex
 from sr_api.minecraft import Minecraft
+from sr_api.lyrics import Lyrics
 
 class InputError(Exception):
     pass
@@ -70,6 +71,11 @@ class Client:
         response = await self._http_client.get(self.srapi_url("mc?username=" + name))
         
         return Minecraft(response)
+    
+    async def get_lyrics(self, title):
+        response = await self._http_client.get(self.srapi_url("lyrics?title=" + title.replace(" ", "+")))
+        
+        return Lyrics(response)
 
     async def close(self):
         await self._http_client.close()
