@@ -43,3 +43,30 @@ For future reference in this documentation: when referring to 'client' we refer 
 **- option** *(string)*: The animal you want to get a random fact from.
    
 **Return type:** string
+
+### *await* client.bot_token()
+---
+**Return type:** string
+
+### *await* client.get_gif(option)
+---
+**Available options:** `wink`, `pat`, `hug`, `face-palm`
+
+**Parameters:**\
+**- option** *(string)*: The type of gif you want.
+
+**Return type:** Image *(object)*
+
+### *await* client.chatbot(text)
+---
+**Parameters:**\
+**- text** *(string)*: Your line to the bot.
+
+**Return type:** string
+
+### *await* client.mc_user(username)
+---
+**Parameters:**\
+**- username** *(string)*: Name of the minecraft user.
+
+**Return type:** MCuser *(object)*
