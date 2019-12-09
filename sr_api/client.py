@@ -135,7 +135,7 @@ class Client:
         response = await self._http_client.get(self.srapi_url("dictionary?word=" + text))
         
         if "error" in response:
-            raise InputError(response.get("error" + " " + text))
+            raise InputError(response.get("error") + " " + text)
             
         res = response.get("definition")
         return res
