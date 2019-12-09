@@ -26,25 +26,25 @@ For future reference in this documentation: when referring to 'client' we refer 
  
   
   
-### *await* client.get_image(option)
+### *await* client.get_image(animal)
 ---
 Get a random animal image.
 
 **Available options:** `cat`, `dog`, `koala`, `fox`, `birb`, `red_panda`, `panda`, `racoon`, `kangaroo`
   
 **Parameters:**\
-**- option** *(string)*: The animal you want to get an image from.
+**- animal** *(string)*: The animal you want to get an image from.
    
 **Return type:** Image *(object)*
 
-### *await* client.get_fact(option)
+### *await* client.get_fact(animal)
 ---
 Get a random animal fact.
 
 **Available options:** `cat`, `dog`, `koala`, `fox`, `bird`, `elephant`, `panda`, `racoon`, `kangaroo`, `giraffe`, `whale`
   
 **Parameters:**\
-**- option** *(string)*: The animal you want to get a random fact from.
+**- animal** *(string)*: The animal you want to get a random fact from.
    
 **Return type:** string
 
