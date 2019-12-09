@@ -111,7 +111,7 @@ class Client:
     async def get_meme(self):
         response = await self._http_client.get(self.srapi_url("meme"))
         
-        return Meme(response)
+        return Meme(self._http_client, response)
 
     async def close(self):
         await self._http_client.close()
