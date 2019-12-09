@@ -197,7 +197,7 @@ The url of the image
 This will return a bytes object from the image
 
 #### *await* Image.save(filepath)
-Locally save the image.
+Locally save the image.\
 **Note:** 'filepath' requires a *full* path! e.g. `/home/John/myimage.png`
 
 ### Lyrics
@@ -221,3 +221,124 @@ A link to the songs Genius page
 
 #### *await* Lyrics.save()
 This will locally save a `.txt` file of the lyrics
+
+### Meme
+The object returned from `client.get_meme()`
+
+#### Meme.id
+The ID of the meme
+
+#### Meme.image
+URL of the meme's image
+
+#### Meme.caption
+Description of the meme
+
+#### Meme.category
+The category the meme belongs to
+
+#### *await* Meme.save(filepath)
+Locally save an image of the meme.\
+**Note:** 'filepath' requires a *full* path! e.g. `/home/John/meme.png`
+
+### MCuser
+The object returned from `client.mc_user()`
+
+#### MCuser.name
+Minecraft username
+
+#### MCuser.full_uuid
+The full UUID inclusind the dashes
+
+#### MCuser.short_uuid
+The UUID without the dashes
+
+#### MCuser.raw_history
+This will return a *list* of *dicts* with the users name history and date it was changed.
+
+#### *await* MCuser.formatted_history()
+A pre formatted list of the users name history
+
+#### *await* MCuser.reversed_formatted_history()
+A pre formatted list of the users name history in reversed order
+
+### Quote
+The object returned from `client.anime_quote()`
+
+#### Quote.quote
+The characters quote
+
+#### Quote.character
+The character the quote is from
+
+#### Quote.anime
+The anime show the character/quote is from
+
+### Pokemon
+The object returned from client.get_pokemon()
+
+#### Pokemon.name
+The name of the pokémon
+
+#### Pokemon.id
+The ID of the pokémon
+
+#### Pokemon.type
+Returns a *list* of the types
+
+#### Pokemon.abilities
+Returns a *list* of the pokémons abilities
+
+#### Pokemon.height
+The pokémons height
+
+#### Pokemon.weight
+The pokémons weight
+
+#### Pokemon.base_experience
+The base experience of the pokémon
+
+#### Pokemon.gender
+Returns a *list* of the pokémons genders
+
+#### Pokemon.egg_groups
+Returns a *list* of the pokémons egg groups
+
+#### Pokemon.hp
+The pokémons HP stats
+
+#### Pokemon.attack
+The pokémons Attack stats
+
+#### Pokemon.defense
+The pokémons Defense stats
+
+#### Pokemon.sp_atk
+The pokémons Special Attack stats
+
+#### Pokemon.sp_def
+The pokémons Special Defense stats
+
+#### Pokemon.speed
+The pokémons Speed stats
+
+#### Pokemon.total
+The pokémons total stats
+
+#### Pokemon.evolutionStage
+The pokémons evolution stage
+
+#### Pokemon.evolutionLine
+Returns a *list* of the pokémons evolution line
+
+#### Pokemon.spriteNormal
+A `.png` url of the pokémons character
+
+#### Pokemon.spriteAnimated
+A `.gif` url of the pokémons character
+
+#### Pokemon.description
+A description of the pokémon
+
+#### Pokemon.generation
+The generation the pokémon is from
