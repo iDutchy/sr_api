@@ -33,4 +33,13 @@ For future reference in this documentation: when referring to 'client' we refer 
 **Parameters:**\
 **- option** *(string)*: The animal you want to get an image from.
    
-**Return type:** Image
+**Return type:** Image *(object)*
+
+### *await* client.get_fact(option)
+---
+**Available options:** `cat`, `dog`, `koala`, `fox`, `bird`, `elephant`, `panda`, `racoon`, `kangaroo`, `giraffe`, `whale`
+  
+**Parameters:**\
+**- option** *(string)*: The animal you want to get a random fact from.
+   
+**Return type:** string
