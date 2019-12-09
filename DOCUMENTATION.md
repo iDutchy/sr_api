@@ -1,6 +1,6 @@
 # SR_Api
 
-Welcome, and thank you for using this api wrapper! This wrapper is completely async! Please note that I am not the creator of some-random-api. I only made this api wrapper! 
+Welcome, and thank you for using this api wrapper! This wrapper is completely async! Please note that I am not the creator of some-random-api. I only made this api wrapper! I also want to thank ir-3 for helping me get started with this.
 
 ## Getting Started:
 
@@ -20,3 +20,17 @@ client = Client()
 ```
 
 For future reference in this documentation: when referring to 'client' we refer to what has been defined above!
+
+
+## Using the wrapper:
+
+
+
+### *await* client.get_image(option)
+---
+**Available options:** `cat`, `dog`, `koala`, `fox`, `birb`, `red_panda`, `panda`, `racoon`, `kangaroo`
+
+**- Parameters:**
+    **option** *(string)*: The animal you want to get an image from.
+    
+**Return type:** Image
