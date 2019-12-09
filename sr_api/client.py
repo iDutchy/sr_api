@@ -26,11 +26,11 @@ class Client:
             raise InputError(name + " is not a valid option!")
 
         if name == None:
-            response = await self._http_client.get(self.srapi_url("img/" + random.choice(options) + "/"))
+            response = await self._http_client.get(self.srapi_url("img/" + random.choice(options)))
             url = response.get("link")
 
         else:
-            response = await self._http_client.get(self.srapi_url("img/" + name + "/"))
+            response = await self._http_client.get(self.srapi_url("img/" + name))
             url = response.get("link")
 
         return Image(self._http_client, url)
@@ -40,7 +40,7 @@ class Client:
         return Pokedex(response)
     
     async def get_fact(self, name):
-        response = await self._http_client.get(self.srapi_url("facts/" + name + "/"))
+        response = await self._http_client.get(self.srapi_url("facts/" + name))
         fact = response.get("fact")
         
         return fact
@@ -56,7 +56,7 @@ class Client:
         if not name in options and name != None:
             raise InputError(name + " is not a valid option!")
 
-        response = await self._http_client.get(self.srapi_url("animu/" + name + "/"))
+        response = await self._http_client.get(self.srapi_url("animu/" + name))
         url = response.get("link")
 
         return Image(self._http_client, url)
@@ -76,6 +76,12 @@ class Client:
         response = await self._http_client.get(self.srapi_url("lyrics?title=" + title.replace(" ", "+")))
         
         return Lyrics(response)
+    
+    async def get_pikachu(self):
+        response = await self._http_client.get(self.srapi_url("pikachuimg"))
+        pika = response.get("link")
+        
+        return pika
 
     async def close(self):
         await self._http_client.close()
