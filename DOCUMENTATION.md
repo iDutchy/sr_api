@@ -28,6 +28,8 @@ For future reference in this documentation: when referring to 'client' we refer 
   
 ### *await* client.get_image(option)
 ---
+Get a random animal image.
+
 **Available options:** `cat`, `dog`, `koala`, `fox`, `birb`, `red_panda`, `panda`, `racoon`, `kangaroo`
   
 **Parameters:**\
@@ -37,6 +39,8 @@ For future reference in this documentation: when referring to 'client' we refer 
 
 ### *await* client.get_fact(option)
 ---
+Get a random animal fact.
+
 **Available options:** `cat`, `dog`, `koala`, `fox`, `bird`, `elephant`, `panda`, `racoon`, `kangaroo`, `giraffe`, `whale`
   
 **Parameters:**\
@@ -46,10 +50,12 @@ For future reference in this documentation: when referring to 'client' we refer 
 
 ### *await* client.bot_token()
 ---
+Get a random bots token. *These are not real and can not be used to make a real bot*
 **Return type:** string
 
 ### *await* client.get_gif(option)
 ---
+Get a random funny gif.
 **Available options:** `wink`, `pat`, `hug`, `face-palm`
 
 **Parameters:**\
@@ -59,6 +65,7 @@ For future reference in this documentation: when referring to 'client' we refer 
 
 ### *await* client.chatbot(text)
 ---
+Talk with the chatbot.
 **Parameters:**\
 **- text** *(string)*: Your line to the bot.
 
@@ -66,6 +73,7 @@ For future reference in this documentation: when referring to 'client' we refer 
 
 ### *await* client.mc_user(username)
 ---
+Get the username history and UUID from a minecraft user.
 **Parameters:**\
 **- username** *(string)*: Name of the minecraft user.
 
