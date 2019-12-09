@@ -177,3 +177,47 @@ BETA Image manipulation for any image *url*.
 **- url** *(string)*: The url from the image you want to manipulate.
 
 **Return type:** string (url)
+
+---
+---
+---
+
+## Objects
+
+Here is explained what attributes the returned objects have
+
+### Image
+---
+The object returned from `client.get_image()` and `client.get_gif()`
+
+#### Image.url
+The url of the image
+
+#### *await* Image.read()
+This will return a bytes object from the image
+
+#### *await* Image.save(filepath)
+Locally save the image.
+**Note:** 'filepath' requires a *full* path! e.g. `/home/John/myimage.png`
+
+### Lyrics
+---
+The object returned from `client.get_lyrics`
+
+#### Lyrics.title
+The title of the song
+
+#### Lyrics.author
+The author of the song
+
+#### Lyrics.lyrics
+The full lyrics of the song
+
+#### Lyrics.thumbnail
+A thumbnail of the song
+
+#### Lyrics.link
+A link to the songs Genius page
+
+#### *await* Lyrics.save()
+This will locally save a `.txt` file of the lyrics
