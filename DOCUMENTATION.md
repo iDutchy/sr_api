@@ -30,7 +30,7 @@ For future reference in this documentation: when referring to 'client' we refer 
 ---
 **Available options:** `cat`, `dog`, `koala`, `fox`, `birb`, `red_panda`, `panda`, `racoon`, `kangaroo`
   
-**- Parameters:**
-    **option** *(string)*: The animal you want to get an image from.
+    **- Parameters:**
+        **option** *(string)*: The animal you want to get an image from.
    
 **Return type:** Image
