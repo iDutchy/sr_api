@@ -8,6 +8,7 @@ class Pokedex:
         self.height = data['height']
         self.weight = data['weight']
         self.base_experience = data['base_experience']
+        self.gender = data['gender']
         self.egg_groups = data['egg_groups']
         self.hp = data['stats']['hp']
         self.attack = data['stats']['attack']
