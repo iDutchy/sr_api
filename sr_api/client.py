@@ -7,6 +7,7 @@ from sr_api.minecraft import Minecraft
 from sr_api.lyrics import Lyrics
 from sr_api.meme import Meme
 from sr_api.quote import Quote
+from sr_api.definition import Definition
 
 class InputError(Exception):
     pass
