@@ -16,6 +16,6 @@ After that, you will have to create the client:
 ```python
 from sr_api.client import Client
 
-client = Client()`
+client = Client()```
 
 For future reference in this documentation: when referring to 'client' we refer to what has been defined above!
