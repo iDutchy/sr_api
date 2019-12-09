@@ -139,45 +139,18 @@ class Client:
             
         return Definition(response)
     
-    async def beta_gay(self, url):
-        response = await self._http_client.get(self.srapi_url("beta/gay?avatar=" + url))
+    async def beta(self, option, url):
+        options = ['gay', 'wasted', 'greyscale', 'invert', 'triggered', 'blur', 'blurple', 'glass', 'pixelate', 'sepia', 'spin']
+        
+        if not option in options:
+            raise InputError(option + " is not a valid BETA endpoint!")
+
+        response = await self._http_client.get(self.srapi_url("beta/" + option + "?avatar=" + url))
         
         if "error" in response:
             raise InputError(response.get("error"))
             
-        return self.srapi_url("beta/gay?avatar=" + url)
-    
-    async def beta_wasted(self, url):
-        response = await self._http_client.get(self.srapi_url("beta/wasted?avatar=" + url))
-        
-        if "error" in response:
-            raise InputError(response.get("error"))
-            
-        return self.srapi_url("beta/wasted?avatar=" + url)
-    
-    async def beta_greyscale(self, url):
-        response = await self._http_client.get(self.srapi_url("beta/greyscale?avatar=" + url))
-        
-        if "error" in response:
-            raise InputError(response.get("error"))
-            
-        return self.srapi_url("beta/greyscale?avatar=" + url)
-    
-    async def beta_invert(self, url):
-        response = await self._http_client.get(self.srapi_url("beta/invert?avatar=" + url))
-        
-        if "error" in response:
-            raise InputError(response.get("error"))
-            
-        return self.srapi_url("beta/invert?avatar=" + url)
-    
-    async def beta_triggered(self, url):
-        response = await self._http_client.get(self.srapi_url("beta/triggered?avatar=" + url))
-        
-        if "error" in response:
-            raise InputError(response.get("error"))
-            
-        return self.srapi_url("beta/triggered?avatar=" + url)
+        return self.srapi_url("beta/" + option + "?avatar=" + url)
 
     async def close(self):
         await self._http_client.close()
