@@ -202,7 +202,7 @@ Locally save the image.\
 
 ### Lyrics
 ---
-The object returned from `client.get_lyrics`
+The object returned from `client.get_lyrics()`
 
 #### Lyrics.title
 The title of the song
