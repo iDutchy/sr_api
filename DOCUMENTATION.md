@@ -277,9 +277,18 @@ The character the quote is from
 #### Quote.anime
 The anime show the character/quote is from
 
+### Definition
+The object returned from `client.define()`
+
+#### Definition.word
+The word that is being defined
+
+#### Definition.definition
+The definition of the word
+
 ### Pokemon
 ---
-The object returned from client.get_pokemon()
+The object returned from `client.get_pokemon()`
 
 #### Pokemon.name
 The name of the pokémon
