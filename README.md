@@ -21,4 +21,4 @@ from sr_api.client import Client
 client = Client()
 ```
 
-For full usage, please read the [documentation](https://github.com/iDutchy/sr_api/blob/rewrite/DOCUMENTATION.md)
+For full usage, please read the [documentation](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md)
