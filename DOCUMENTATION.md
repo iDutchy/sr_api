@@ -37,7 +37,7 @@ Get a random animal image.
 **Parameters:**\
 **- animal** *(string)*: The animal you want to get an image from.
    
-**Return type:** [Image](https://github.com/iDutchy/sr_api/blob/rewrite/DOCUMENTATION.md#image "Image object attributes") *(object)*
+**Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
 
 ### *await* client.get_fact(animal)
 ---
@@ -65,7 +65,7 @@ Get a random funny gif.
 **Parameters:**\
 **- option** *(string)*: The type of gif you want.
 
-**Return type:** [Image](https://github.com/iDutchy/sr_api/blob/rewrite/DOCUMENTATION.md#image "Image object attributes") *(object)*
+**Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
 
 ### *await* client.chatbot(text)
 ---
@@ -83,7 +83,7 @@ Get the username history and UUID from a minecraft user.
 **Parameters:**\
 **- username** *(string)*: Name of the minecraft user.
 
-**Return type:** [MCuser](https://github.com/iDutchy/sr_api/blob/rewrite/DOCUMENTATION.md#mcuser "MCuser object attributes") *(object)*
+**Return type:** [MCuser](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#mcuser "MCuser object attributes") *(object)*
 
 ### *await* client.get_pokemon(pokemon)
 ---
@@ -92,7 +92,7 @@ Search for a pokemon in the pokedex.
 **Parameters:**\
 **- pokemon** *(string)*: Name of the pokémon.
 
-**Return type:** [Pokemon](https://github.com/iDutchy/sr_api/blob/rewrite/DOCUMENTATION.md#pokemon "Pokemon object attributes") *(object)*
+**Return type:** [Pokemon](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#pokemon "Pokemon object attributes") *(object)*
 
 ### *await* client.get_pikachu()
 ---
@@ -143,19 +143,19 @@ Get the lyrics from a song.
 **Parameters:**\
 **- title** *(string)*: Title of the song you want to get lyrics from.
 
-**Return type:** [Lyrics](https://github.com/iDutchy/sr_api/blob/rewrite/DOCUMENTATION.md#lyrics "Lyrics object attributes") *(object)*
+**Return type:** [Lyrics](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#lyrics "Lyrics object attributes") *(object)*
 
 ### *await* client.get_meme()
 ---
 Get a random meme.
 
-**Return type:** [Meme](https://github.com/iDutchy/sr_api/blob/rewrite/DOCUMENTATION.md#meme "Meme object attributes") *(object)*
+**Return type:** [Meme](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#meme "Meme object attributes") *(object)*
 
 ### *await* client.anime_quote()
 ---
 Get a random quote from an anime.
 
-**Return type:** [Quote](https://github.com/iDutchy/sr_api/blob/rewrite/DOCUMENTATION.md#quote "Quote object attributes") *(object)*
+**Return type:** [Quote](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#quote "Quote object attributes") *(object)*
 
 ### *await* client.define(word)
 ---
@@ -164,7 +164,7 @@ Get the definition from a word.
 **Parameters:**\
 **- word** *(string)*: The word you want to define.
 
-**Return type:** [Definition](https://github.com/iDutchy/sr_api/blob/rewrite/DOCUMENTATION.md#definition "Definition object attributes") *(object)*
+**Return type:** [Definition](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#definition "Definition object attributes") *(object)*
 
 ### *await* client.beta(option, url)
 ---
