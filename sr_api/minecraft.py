@@ -1,4 +1,6 @@
 class Minecraft:
+    __slots__ = ("name", "full_uuid", "short_uuid", "raw_history")
+
     def __init__(self, data):
         self.name = data["username"]
         self.full_uuid = data["full_uuid"]

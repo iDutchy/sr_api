@@ -9,10 +9,14 @@ from sr_api.meme import Meme
 from sr_api.quote import Quote
 from sr_api.definition import Definition
 
+
 class InputError(Exception):
+    __slots__ = ()
     pass
 
+
 class Client:
+    __slots__ = "_http_client"
 
     # SR API BASE PATH
     SR_API_BASE = "https://some-random-api.ml/"
@@ -24,7 +28,7 @@ class Client:
         return self.SR_API_BASE + path
 
     async def get_image(self, name=None):
-        options = ["cat", "dog", "koala", "fox", "birb", "red_panda", "panda", "racoon", "kangaroo"]
+        options = ("cat", "dog", "koala", "fox", "birb", "red_panda", "panda", "racoon", "kangaroo")
         if not name in options and name != None:
             raise InputError(name + " is not a valid option!")
 
@@ -45,7 +49,7 @@ class Client:
         return Pokedex(response)
     
     async def get_fact(self, name):
-        options = ["cat", "dog", "panda", "koala", "fox", "bird", "racoon", "kangaroo", "elephant", "giraffe", "whale"]
+        options = ("cat", "dog", "panda", "koala", "fox", "bird", "racoon", "kangaroo", "elephant", "giraffe", "whale")
         if not name in options:
             raise InputError(name + " is not a valid option!")
 
@@ -61,7 +65,7 @@ class Client:
         return token
     
     async def get_gif(self, name):
-        options = ["wink", "pat", "hug", "face-palm"]
+        options = ("wink", "pat", "hug", "face-palm")
         if not name in options and name != None:
             raise InputError(name + " is not a valid option!")
 
@@ -141,7 +145,7 @@ class Client:
         return Definition(response)
     
     async def beta(self, option, url):
-        options = ['gay', 'wasted', 'greyscale', 'invert', 'triggered', 'blur', 'blurple', 'glass', 'pixelate', 'sepia', 'spin']
+        options = ('gay', 'wasted', 'greyscale', 'invert', 'triggered', 'blur', 'blurple', 'glass', 'pixelate', 'sepia', 'spin')
         
         if not option in options:
             raise InputError(option + " is not a valid BETA endpoint!")
