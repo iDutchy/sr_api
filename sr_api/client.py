@@ -65,7 +65,7 @@ class Client:
         return token
     
     async def get_gif(self, name):
-        options = ["wink", "pat", "hug", "face-palm"]
+        options = ("wink", "pat", "hug", "face-palm")
         if not name in options and name != None:
             raise InputError(name + " is not a valid option!")
 
