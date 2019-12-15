@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'sr_api',
   packages = ['sr_api'],
-  version = '0.1',
+  version = '0.2',
   license='MIT',
   description = 'An async wrapper for some-random-api',
   author = 'Niels Steenman',
