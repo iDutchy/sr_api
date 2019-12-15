@@ -7,8 +7,8 @@ setup(
   description = 'An async wrapper for some-random-api',
   author = 'Niels Steenman',
   author_email = 'ngssteenman@gmail.com',
-  url = 'https://github.com/iDutchy',
-  download_url = 'https://github.com/iDutchy/sr_api/archive/v0.1.tar.gz',
+  url = 'https://github.com/iDutchy/sr_api',
+  download_url = 'https://github.com/iDutchy/sr_api/archive/v0.2.tar.gz',
   keywords = ['wrapper', 'api', 'random'],
   install_requires=['aiohttp'],
   classifiers=[
