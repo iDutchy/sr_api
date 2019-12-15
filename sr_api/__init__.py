@@ -1,1 +1,1 @@
-from sr_api.client import Client
+from .client import Client

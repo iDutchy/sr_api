@@ -14,7 +14,7 @@ class Meme:
 
 
     async def read(self):
-        return await self._http_client.get(self.url)
+        return await self._http_client.get(self.image)
 
     async def save(self, fp, seek_start=True):
         data = await self.read()
