@@ -16,9 +16,9 @@ Or you can install directly from source by doing one of the following commands:
  
 After that, you will have to create the client:
 ```python
-from sr_api.client import Client
+import sr_api
 
-client = Client()
+client = sr_api.Client()
 ```
  
 For future reference in this documentation: when referring to 'client' we refer to what has been defined above!
