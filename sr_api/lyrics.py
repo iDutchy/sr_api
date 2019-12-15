@@ -1,4 +1,6 @@
 class Lyrics:
+    __slots__ = ("title", "author", "lyrics", "thumbnail", "link")
+
     def __init__(self, data):
         self.title = data['title']
         self.author = data['author']

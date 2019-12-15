@@ -1,4 +1,6 @@
 class Pokedex:
+    __slots__ = ("name", "id", "type", "species", "abilities", "height", "weight", "base_experience", "gender", "egg_groups", "hp", "attack", "defense", "sp_atk", "sp_def", "speed", "total", "evolutionStage", "evolutionLine", "spriteNormal", "spriteAnimated", "description", "generation")
+
     def __init__(self, data):
         self.name = data['name']
         self.id = data['id']
