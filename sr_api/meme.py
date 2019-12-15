@@ -2,6 +2,7 @@ import io
 
 from sr_api.http import HTTPClient
 
+
 class Meme:
     __slots__ = ("id", "image", "caption", "category", "_http_client")
 

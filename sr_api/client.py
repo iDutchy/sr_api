@@ -9,9 +9,11 @@ from sr_api.meme import Meme
 from sr_api.quote import Quote
 from sr_api.definition import Definition
 
+
 class InputError(Exception):
     __slots__ = ()
     pass
+
 
 class Client:
     __slots__ = "_http_client"
