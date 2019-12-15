@@ -16,9 +16,9 @@ Or you can install directly from source by doing one of the following commands:
  
 After that, you will have to create the client:
 ```python
-from sr_api.client import Client
+from sr_api
 
-client = Client()
+client = sr_api.Client()
 ```
 
 For full usage, please read the [documentation](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md)
