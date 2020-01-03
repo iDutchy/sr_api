@@ -149,11 +149,6 @@ class Client:
         
         if not option in options:
             raise InputError(option + " is not a valid BETA endpoint!")
-
-        response = await self._http_client.get(self.srapi_url("beta/" + option + "?avatar=" + url))
-        
-        if "error" in response:
-            raise InputError(response.get("error"))
             
         return self.srapi_url("beta/" + option + "?avatar=" + url)
 
