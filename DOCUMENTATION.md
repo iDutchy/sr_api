@@ -6,7 +6,7 @@ For any questions and support for the wrapper, you can visit the [Discord suppor
  
 ## Getting Started:
 
-To begin with, you'll habe to install the package by doing one of the following commands:
+To begin with, you'll have to install the package by doing one of the following commands:
 - `pip install -U sr_api`
 - `python -m pip -U install sr_api`
  
