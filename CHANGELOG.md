@@ -1,3 +1,6 @@
+### v0.4 - January 3, 2020
+* Fixed issue with beta endpoint
+
 ### v0.3 - December 15, 2019
 * Fixed last update where I forgot to change a crucial part
 
