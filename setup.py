@@ -9,6 +9,7 @@ setup(
   author = 'Niels Steenman',
   author_email = 'ngssteenman@gmail.com',
   url = 'https://github.com/iDutchy/sr_api',
+  download_url = 'https://github.com/iDutchy/sr_api/archive/v0.5.0.tar.gz',
   keywords = ['wrapper', 'api', 'random'],
   install_requires=['aiohttp'],
   classifiers=[
