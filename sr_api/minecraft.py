@@ -1,14 +1,13 @@
 class Minecraft:
-    __slots__ = ("name", "full_uuid", "short_uuid", "raw_history")
-
+    __slots__ = ("name", "uuid", "raw_history")
     def __init__(self, data):
-        self.name = data["username"]
-        self.full_uuid = data["full_uuid"]
-        self.short_uuid = data["trimmed_uuid"]
-        self.raw_history = data["name_history"]
+        self.name = data.get("username")
+        self.uuid = data.get("full_uuid")
+        self.history = data.get("name_history")
 
-    async def formatted_history(self):
-        d = self.raw_history
+    @property
+    def formatted_history(self):
+        d = self.history
         
         formatted = ""
         for x in d:
@@ -16,8 +15,9 @@ class Minecraft:
                 
         return formatted
     
-    async def reversed_formatted_history(self):
-        d = self.raw_history
+    @property
+    def reversed_formatted_history(self):
+        d = self.history
         
         formatted = ""
         for x in d[::-1]:
