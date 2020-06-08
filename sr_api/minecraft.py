@@ -1,5 +1,5 @@
 class Minecraft:
-    __slots__ = ("name", "uuid", "raw_history")
+    __slots__ = ("name", "uuid", "history")
     def __init__(self, data):
         self.name = data.get("username")
         self.uuid = data.get("full_uuid")
