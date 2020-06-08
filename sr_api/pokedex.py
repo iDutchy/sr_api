@@ -1,27 +1,62 @@
 class Pokedex:
-    __slots__ = ("name", "id", "type", "species", "abilities", "height", "weight", "base_experience", "gender", "egg_groups", "hp", "attack", "defense", "sp_atk", "sp_def", "speed", "total", "evolutionStage", "evolutionLine", "spriteNormal", "spriteAnimated", "description", "generation")
-
+    __slots__ = ("name", "id", "type", "species", "abilities", "height", "weight", "base_experience", "gender", "egg_groups", "stats", "family", "sprites", "description", "generation")
     def __init__(self, data):
-        self.name = data['name']
-        self.id = data['id']
-        self.type = data['type']
-        self.species = data['species']
-        self.abilities = data['abilities']
-        self.height = data['height']
-        self.weight = data['weight']
-        self.base_experience = data['base_experience']
-        self.gender = data['gender']
-        self.egg_groups = data['egg_groups']
-        self.hp = data['stats']['hp']
-        self.attack = data['stats']['attack']
-        self.defense = data['stats']['defense']
-        self.sp_atk = data['stats']['sp_atk']
-        self.sp_def = data['stats']['sp_def']
-        self.speed = data['stats']['speed']
-        self.total = data['stats']['total']
-        self.evolutionStage = data['family']['evolutionStage']
-        self.evolutionLine = data['family']['evolutionLine']
-        self.spriteNormal = data['sprites']['normal']
-        self.spriteAnimated = data['sprites']['animated']
-        self.description = data['description']
-        self.generation = data['generation']
+        self.name = data.get('name')
+        self.id = data.get('id')
+        self.type = data.get('type')
+        self.species = data.get('species')
+        self.abilities = data.get('abilities')
+        self.height = data.get('height')
+        self.weight = data.get('weight')
+        self.base_experience = data.get('base_experience')
+        self.gender = data.get('gender')
+        self.egg_groups = data.get('egg_groups')
+        self.stats = data.get('stats')
+        self.family = data.get('family')
+        self.sprites = data.get('sprites')
+        self.description = data.get('description')
+        self.generation = data.get('generation')
+
+    @property
+    def evolutionStage(self):
+        return self.stats.get('evolutionStage')
+
+    @property
+    def evolutionLine(self):
+        return self.stats.get('evolutionLine')
+
+    @property
+    def spriteNormal(self):
+        return self.stats.get('spriteNormal')
+
+    @property
+    def spriteAnimated(self):
+        return self.stats.get('spriteAnimated')
+
+    @property
+    def attack(self):
+        return self.stats.get('attack')
+
+    @property
+    def hp(self):
+        return self.stats.get('hp')
+
+    @property
+    def defense(self):
+        return self.stats.get('defense')
+
+    @property
+    def sp_atk(self):
+        return self.stats.get('sp_atk')
+
+    @property
+    def sp_def(self):
+        return self.stats.get('sp_def')
+
+    @property
+    def speed(self):
+        return self.stats.get('speed')
+
+    @property
+    def total(self):
+        return self.stats.get('total')
