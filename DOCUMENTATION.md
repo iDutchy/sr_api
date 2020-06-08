@@ -219,7 +219,7 @@ A thumbnail of the song
 #### Lyrics.link
 A link to the songs Genius page
 
-#### *await* Lyrics.save()
+#### Lyrics.save()
 This will locally save a `.txt` file of the lyrics
 
 ### Meme
@@ -249,19 +249,16 @@ The object returned from `client.mc_user()`
 #### MCuser.name
 Minecraft username
 
-#### MCuser.full_uuid
-The full UUID inclusind the dashes
+#### MCuser.uuid
+The users UUID
 
-#### MCuser.short_uuid
-The UUID without the dashes
-
-#### MCuser.raw_history
+#### MCuser.history
 This will return a *list* of *dicts* with the users name history and date it was changed.
 
-#### *await* MCuser.formatted_history()
+#### MCuser.formatted_history
 A pre formatted list of the users name history
 
-#### *await* MCuser.reversed_formatted_history()
+#### MCuser.reversed_formatted_history
 A pre formatted list of the users name history in reversed order
 
 ### Quote
