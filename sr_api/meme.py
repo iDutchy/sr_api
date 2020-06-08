@@ -2,16 +2,15 @@ import io
 
 from sr_api.http import HTTPClient
 
-
 class Meme:
     __slots__ = ("id", "image", "caption", "category", "_http_client")
-
     def __init__(self, http_client: HTTPClient, data):
-        self.id = data['id']
-        self.image = data['image']
-        self.caption = data['caption']
-        self.category = data['category']
+        self.id = data.get('id')
+        self.image = data.get('image')
+        self.caption = data.get('caption')
+        self.category = data.get('category')
         self._http_client = http_client
+
 
     async def read(self):
         return await self._http_client.get(self.image)
