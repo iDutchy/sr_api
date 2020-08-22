@@ -32,7 +32,7 @@ All available endpoints you can use.
 ---
 Get a random animal image.
 
-**Available options:** `cat`, `dog`, `koala`, `fox`, `birb`, `red_panda`, `panda`, `racoon`, `kangaroo`
+**Available options:** `dog`, `cat`, `panda`, `red_panda`, `fox`, `birb`, `koala`, `kangaroo`, `racoon`, `whale`, `pikachu`
   
 **Parameters:**\
 **- animal** *(string)*: The animal you want to get an image from.
@@ -93,12 +93,6 @@ Search for a pokemon in the pokedex.
 **- pokemon** *(string)*: Name of the pokémon.
 
 **Return type:** [Pokemon](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#pokemon "Pokemon object attributes") *(object)*
-
-### *await* client.get_pikachu()
----
-Get a random pikachu image.
-
-**Return type:** string (url)
 
 ### *await* client.encode_binary(text)
 ---
@@ -166,17 +160,52 @@ Get the definition from a word.
 
 **Return type:** [Definition](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#definition "Definition object attributes") *(object)*
 
-### *await* client.beta(option, url)
+### *await* client.filter(option, url)
 ---
-BETA Image manipulation for any image *url*.
+Image manipulation for any image *url*.
 
-**Available options:** `gay`, `wasted`, `greyscale`, `invert`, `triggered`, `blur`, `blurple`, `glass`, `pixelate`, `sepia`, `spin`
+**Available options:** `greyscale`, `invert`, `Invertgreyscale`, `brightness`, `threshold`, `sepia`, `red`, `green`, `blue`, `blurple`, `pixelate`, `blur`, `gay`, `glass`, `wasted`, `triggered`
 
 **Parameters:**\
 **- option** *(string)*: The type of image manipulation you want to use.\
 **- url** *(string)*: The url from the image you want to manipulate.
 
 **Return type:** string (url)
+
+### *await* client.youtube_comment(avatar, username, comment)
+---
+Generate a fake youtube comment.
+
+**Parameters:**\
+**- avatar** *(string)*: The avatar you want to use.\
+**- username** *(string)*: The username for the comment.
+**- comment** *(string)*: The content of the comment.
+
+**Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
+
+### *await* client.view_color(color)
+---
+View a color.
+
+**Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
+
+### *await* client.rgb_to_hex(color_hex)
+---
+Convert RGB to HEX
+
+**Parameters:**\
+**- color_hex** *(string)*: The RGB value you want to convert. Example: `"255,255,255"`\
+
+**Return type:** string (url)
+
+### *await* client.hex_to_rgb(color_hex)
+---
+Convert HEX to RGB
+
+**Parameters:**\
+**- color_hex** *(string)*: The HEX value you want to convert. Example: `"123456"`\
+
+**Return type:** dict ("r", "g", "b")
 
 ---
 ---

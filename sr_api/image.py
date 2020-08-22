@@ -8,8 +8,8 @@ class Image:
     __slots__ = ("url", "_http_client")
 
     def __init__(self, http_client: HTTPClient, url):
-        self.url = url
         self._http_client = http_client
+        self.url = url
 
     async def read(self):
         return await self._http_client.get(self.url)
