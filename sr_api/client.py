@@ -156,24 +156,24 @@ class Client:
         return self.srapi_url("canvas/" + str(option).lower() + "?avatar=" + url)
 
     async def youtube_comment(self, avatar, username, comment):
-        url = self.srapi_url("/canvas/youtube-comment" + "?avatar" + avatar + "&username" + username + "&comment" + comment)
+        url = self.srapi_url("canvas/youtube-comment" + "?avatar" + avatar + "&username" + username + "&comment" + comment)
 
         return Image(self._http_client, url)
 
     async def view_color(self, color):
         color = color.replace("#")
-        url = self.srapi_url("/canvas/colorviewer" + "?hex" + color)
+        url = self.srapi_url("canvas/colorviewer" + "?hex" + color)
 
         return Image(self._http_client, url)
 
     async def rgb_to_hex(self, rgb):
-        response = await self._http_client.get(self.srapi_url("/canvas/hex?rgb" + rgb))
+        response = await self._http_client.get(self.srapi_url("canvas/hex?rgb" + rgb))
         res = response.get("hex")
 
         return res
 
     async def hex_to_rgb(self, color_hex):
-        response = await self._http_client.get(self.srapi_url("/canvas/rgb?hex" + color_hex))
+        response = await self._http_client.get(self.srapi_url("canvas/rgb?hex" + color_hex))
 
         return dict(response)
 
