@@ -126,6 +126,12 @@ class Client:
 
         return Meme(self._http_client, response)
 
+    async def get_joke(self):
+        response = await self._http_client.get(self.srapi_url("joke"))
+        res = response.get("joke")
+
+        return res
+
     async def anime_quote(self):
         response = await self._http_client.get(self.srapi_url("animu/quote"))
 
@@ -138,12 +144,6 @@ class Client:
             raise InputError(response.get("error") + " " + text)
 
         return Definition(response)
-
-    async def get_joke(self):
-        response = await self._http_client.get(self.srapi_url("joke"))
-        res = response.get("joke")
-
-        return res
 
     async def filter(self, option, url):
         options = (

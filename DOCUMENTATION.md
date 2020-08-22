@@ -145,6 +145,12 @@ Get a random meme.
 
 **Return type:** [Meme](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#meme "Meme object attributes") *(object)*
 
+### *await* client.get_joke()
+---
+Get a random joke.
+
+**Return type:** string
+
 ### *await* client.anime_quote()
 ---
 Get a random quote from an anime.
@@ -220,7 +226,7 @@ Here is explained what attributes the returned objects have
 
 ### Image
 ---
-The object returned from `client.get_image()` and `client.get_gif()`
+The object returned from `client.get_image()`,  `client.get_gif()`, `client.youtube_comment()` and `client.view_color()`
 
 #### Image.url
 The url of the image
