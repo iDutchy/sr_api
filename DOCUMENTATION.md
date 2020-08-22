@@ -205,7 +205,7 @@ Convert RGB to HEX
 **Parameters:**\
 **- color_hex** *(string)*: The RGB value you want to convert. Example: `"255,255,255"`
 
-**Return type:** string (url)
+**Return type:** string
 
 ### *await* client.hex_to_rgb(color_hex)
 ---
