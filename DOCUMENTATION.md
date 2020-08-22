@@ -178,7 +178,7 @@ Generate a fake youtube comment.
 
 **Parameters:**\
 **- avatar** *(string)*: The avatar you want to use.\
-**- username** *(string)*: The username for the comment.
+**- username** *(string)*: The username for the comment.\
 **- comment** *(string)*: The content of the comment.
 
 **Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
@@ -187,6 +187,9 @@ Generate a fake youtube comment.
 ---
 View a color.
 
+**Parameters:**\
+**- color** *(string)*: The color you want an image of.
+
 **Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
 
 ### *await* client.rgb_to_hex(color_hex)
@@ -194,7 +197,7 @@ View a color.
 Convert RGB to HEX
 
 **Parameters:**\
-**- color_hex** *(string)*: The RGB value you want to convert. Example: `"255,255,255"`\
+**- color_hex** *(string)*: The RGB value you want to convert. Example: `"255,255,255"`
 
 **Return type:** string (url)
 
@@ -203,7 +206,7 @@ Convert RGB to HEX
 Convert HEX to RGB
 
 **Parameters:**\
-**- color_hex** *(string)*: The HEX value you want to convert. Example: `"123456"`\
+**- color_hex** *(string)*: The HEX value you want to convert. Example: `"123456"`
 
 **Return type:** dict ("r", "g", "b")
 
