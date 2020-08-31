@@ -21,11 +21,12 @@ class Client:
     # SR API BASE PATH
     SR_API_BASE = "https://some-random-api.ml/"
 
-    def __init__(self):
+    def __init__(self, key=""):
         self._http_client = HTTPClient()
+        self.key = key
 
     def srapi_url(self, path):
-        return self.SR_API_BASE + path
+        return self.SR_API_BASE + path + "&key=" + self.key
 
     async def get_image(self, name=None):
         options = ("cat", "dog", "koala", "fox", "birb", "red_panda", "panda", "racoon", "kangaroo")
