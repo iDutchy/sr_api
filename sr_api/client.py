@@ -15,7 +15,7 @@ class InputError(Exception):
 
 class Client:
 
-    __slots__ = "_http_client"
+    __slots__ = ("_http_client", "key")
 
     # SR API BASE PATH
     SR_API_BASE = "https://some-random-api.ml/"
