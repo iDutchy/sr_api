@@ -1,5 +1,5 @@
 ### v1.0.3 - September 5, 2020
-* Methods that return an `Image` object now return the url instead of the object`
+* You can now get the url from methods that return an `Image` object by casting the object to `str`
 
 ### v1.0.2 - September 5, 2020
 * Fixed passing a key in `Client`
