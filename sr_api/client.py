@@ -20,23 +20,26 @@ class Client:
     # SR API BASE PATH
     SR_API_BASE = "https://some-random-api.ml/"
 
-    def __init__(self):
+    def __init__(self, key=None):
         self._http_client = HTTPClient()
+        self.key = key
 
     def srapi_url(self, path):
-        return self.SR_API_BASE + path
+        return self.SR_API_BASE + path + (("&key=" + key) if key else "")
 
     async def get_image(self, name=None):
-        options = ("cat", "dog", "koala", "fox", "birb", "red_panda", "panda", "racoon", "kangaroo")
-        if not name in options and name != None:
-            raise InputError(name + " is not a valid option!")
+        options = ("dog", "cat", "panda", "red_panda", "fox", "birb", "koala",
+                   "kangaroo", "racoon", "whale", "pikachu")
 
-        if name == None:
+        if name.lower() not in options and name is not None:
+            raise InputError(name.lower() + " is not a valid option!")
+
+        if name is None:
             response = await self._http_client.get(self.srapi_url("img/" + random.choice(options)))
             url = response.get("link")
 
         else:
-            response = await self._http_client.get(self.srapi_url("img/" + name))
+            response = await self._http_client.get(self.srapi_url("img/" + name.lower()))
             url = response.get("link")
 
         return Image(self._http_client, url)
@@ -94,13 +97,7 @@ class Client:
             raise InputError(response.get("error"))
         
         return Lyrics(response)
-    
-    async def get_pikachu(self):
-        response = await self._http_client.get(self.srapi_url("pikachuimg"))
-        pika = response.get("link")
-        
-        return pika
-    
+
     async def encode_binary(self, text):
         response = await self._http_client.get(self.srapi_url("binary?text=" + text.replace(" ", "+")))
         res = response.get("binary")
@@ -142,14 +139,39 @@ class Client:
             raise InputError(response.get("error") + " " + text)
             
         return Definition(response)
-    
-    async def beta(self, option, url):
-        options = ('gay', 'wasted', 'greyscale', 'invert', 'triggered', 'blur', 'blurple', 'glass', 'pixelate', 'sepia', 'spin')
-        
-        if not option in options:
-            raise InputError(option + " is not a valid BETA endpoint!")
-            
-        return self.srapi_url("beta/" + option + "?avatar=" + url)
+
+    async def get_joke(self):
+        response = await self._http_client.get(self.srapi_url("joke"))
+        res = response.get("joke")
+        return res
+
+    async def filter(self, option, url):
+        options = (
+            'greyscale', 'invert', 'Invertgreyscale', 'brightness', 'threshold', 'sepia', 'red', 'green', 'blue', 'blurple',
+            'pixelate', 'blur', 'gay', 'glass', 'wasted', 'triggered')
+
+        if option.lower() not in options and option is not None:
+            raise InputError(option.lower() + " is not a valid option!")
+
+        return self.srapi_url("canvas/" + str(option).lower() + "?avatar=" + url)
+
+    async def youtube_comment(self, avatar, username, comment):
+        url = self.srapi_url("canvas/youtube-comment" + "?avatar=" + avatar + "&username=" + username + "&comment=" + comment)
+        return Image(self._http_client, url)
+
+    async def view_color(self, color):
+        color = color.replace("#", '')
+        url = self.srapi_url("canvas/colorviewer" + "?hex=" + color)
+        return Image(self._http_client, url)
+
+    async def rgb_to_hex(self, rgb):
+        response = await self._http_client.get(self.srapi_url("canvas/hex?rgb=" + rgb))
+        res = response.get("hex")
+        return res
+
+    async def hex_to_rgb(self, color_hex):
+        response = await self._http_client.get(self.srapi_url("canvas/rgb?hex=" + color_hex))
+        return dict(response)
 
     async def close(self):
         await self._http_client.close()

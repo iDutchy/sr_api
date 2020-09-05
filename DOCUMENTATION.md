@@ -32,8 +32,7 @@ All available endpoints you can use.
 ---
 Get a random animal image.
 
-**Available options:** `cat`, `dog`, `koala`, `fox`, `birb`, `red_panda`, `panda`, `racoon`, `kangaroo`
-  
+**Available options:** `dog`, `cat`, `panda`, `red_panda`, `fox`, `birb`, `koala`, `kangaroo`, `racoon`, `whale`, `pikachu`  
 **Parameters:**\
 **- animal** *(string)*: The animal you want to get an image from.
    
@@ -94,12 +93,6 @@ Search for a pokemon in the pokedex.
 
 **Return type:** [Pokemon](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#pokemon "Pokemon object attributes") *(object)*
 
-### *await* client.get_pikachu()
----
-Get a random pikachu image.
-
-**Return type:** string (url)
-
 ### *await* client.encode_binary(text)
 ---
 Encode text in binary.
@@ -157,6 +150,12 @@ Get a random quote from an anime.
 
 **Return type:** [Quote](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#quote "Quote object attributes") *(object)*
 
+### *await* client.get_joke()
+---
+Get a random joke.
+
+**Return type:** string
+
 ### *await* client.define(word)
 ---
 Get the definition from a word.
@@ -166,17 +165,53 @@ Get the definition from a word.
 
 **Return type:** [Definition](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#definition "Definition object attributes") *(object)*
 
-### *await* client.beta(option, url)
+### *await* client.filter(option, url)
 ---
-BETA Image manipulation for any image *url*.
-
-**Available options:** `gay`, `wasted`, `greyscale`, `invert`, `triggered`, `blur`, `blurple`, `glass`, `pixelate`, `sepia`, `spin`
+**Available options:** `gay`, `wasted`, `greyscale`, `invert`, `triggered`, `blur`, `blurple`, `glass`, `pixelate`, `sepia`, `spin`, `invertgreyscale`, `brightness`, `threshold`, `red`, `green`, `blue`
 
 **Parameters:**\
 **- option** *(string)*: The type of image manipulation you want to use.\
 **- url** *(string)*: The url from the image you want to manipulate.
 
 **Return type:** string (url)
+
+## *await* client.youtube_comment(avatar, username, comment)
+---
+Generate a fake youtube comment.
+
+**Parameters:**\
+**- avatar** *(string)*: The avatar you want to use.\
+**- username** *(string)*: The username for the comment.\
+**- comment** *(string)*: The content of the comment.
+
+**Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
+
+### *await* client.view_color(color)
+---
+View a color.
+
+**Parameters:**\
+**- color** *(string)*: The color you want an image of. Example: `"123456"`
+
+**Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
+
+### *await* client.rgb_to_hex(color_hex)
+---
+Convert RGB to HEX
+
+**Parameters:**\
+**- color_hex** *(string)*: The RGB value you want to convert. Example: `"255,255,255"`
+
+**Return type:** string
+
+### *await* client.hex_to_rgb(color_hex)
+---
+Convert HEX to RGB
+
+**Parameters:**\
+**- color_hex** *(string)*: The HEX value you want to convert. Example: `"123456"`
+
+**Return type:** dict ("r", "g", "b")
 
 ---
 ---
@@ -188,7 +223,7 @@ Here is explained what attributes the returned objects have
 
 ### Image
 ---
-The object returned from `client.get_image()` and `client.get_gif()`
+The object returned from `client.get_image()`,  `client.get_gif()`, `client.youtube_comment()` and `client.view_color()`
 
 #### Image.url
 The url of the image

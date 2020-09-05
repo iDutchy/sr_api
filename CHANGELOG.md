@@ -1,3 +1,15 @@
+### v1.0 - September 5, 2020
+* Renamed `Client.beta()` to `Client.filter()` since its no longer a beta feature
+* Added `whale` and `pikachu` to `Client.get_image()`
+* Added `invertgreyscale`, `brightness`, `threshold`, `red`, `green` & `blue` to `Client.filter()`
+* Added `Client.youtube_comment()`
+* Added `Client.view_color()`
+* Added `Client.rgb_to_hex()`
+* Added `Client.hex_to_rgb()`
+* Added `Client.get_joke()`
+* Added support for using premium. Provide your premium key in the Client init like `client = sr_api.Client("key here")`. Dont provide a key if you dont have one.
+* Removed `Client.get_pikachu()` which is now available in `Client.get_image()`
+
 ### v0.4 - January 3, 2020
 * Fixed issue with beta endpoint
 
