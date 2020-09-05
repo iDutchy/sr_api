@@ -25,7 +25,7 @@ class Client:
         self.key = key
 
     def srapi_url(self, path):
-        return self.SR_API_BASE + path + (("&key=" + key) if key else "")
+        return self.SR_API_BASE + path + (("&key=" + self.key) if self.key else "")
 
     async def get_image(self, name=None):
         options = ("dog", "cat", "panda", "red_panda", "fox", "birb", "koala",
