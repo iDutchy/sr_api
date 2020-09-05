@@ -148,7 +148,7 @@ class Client:
     async def filter(self, option, url):
         options = (
             'greyscale', 'invert', 'invertgreyscale', 'brightness', 'threshold', 'sepia', 'red', 'green', 'blue', 'blurple',
-            'pixelate', 'blur', 'gay', 'glass', 'wasted', 'triggered')
+            'pixelate', 'blur', 'gay', 'glass', 'wasted', 'triggered', 'spin')
 
         if option.lower() not in options and option is not None:
             raise InputError(option.lower() + " is not a valid option!")

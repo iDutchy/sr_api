@@ -1,3 +1,6 @@
+### v1.0.5 - September 6, 2020
+* Added `spin` back because apparently SRA didnt document it.
+
 ### v1.0.4 - September 6, 2020
 * Fixed type where you couldn't use the `greyscale` filter
 * Removed `spin` from filter method, unsure how it even got there
