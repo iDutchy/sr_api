@@ -173,7 +173,7 @@ Get the definition from a word.
 
 ### *await* client.filter(option, url)
 ---
-**Available options:** `gay`, `wasted`, `greyscale`, `invert`, `triggered`, `blur`, `blurple`, `glass`, `pixelate`, `sepia`, `spin`, `invertgreyscale`, `brightness`, `threshold`, `red`, `green`, `blue`
+**Available options:** `gay`, `wasted`, `greyscale`, `invert`, `triggered`, `blur`, `blurple`, `glass`, `pixelate`, `sepia`, `invertgreyscale`, `brightness`, `threshold`, `red`, `green`, `blue`
 
 **Parameters:**\
 **- option** *(string)*: The type of image manipulation you want to use.\
