@@ -179,7 +179,7 @@ Get the definition from a word.
 **- option** *(string)*: The type of image manipulation you want to use.\
 **- url** *(string)*: The url from the image you want to manipulate.
 
-**Return type:** string (url)
+**Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
 
 ## *await* client.youtube_comment(avatar, username, comment)
 ---

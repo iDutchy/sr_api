@@ -153,7 +153,8 @@ class Client:
         if option.lower() not in options and option is not None:
             raise InputError(option.lower() + " is not a valid option!")
 
-        return self.srapi_url("canvas/" + str(option).lower() + "?avatar=" + url)
+        end_url = self.srapi_url("canvas/" + str(option).lower() + "?avatar=" + url)
+        return Image(self._http_client, end_url)
 
     async def youtube_comment(self, avatar, username, comment):
         url = self.srapi_url("canvas/youtube-comment" + "?avatar=" + avatar + "&username=" + username + "&comment=" + comment.replace(" ", "+"))

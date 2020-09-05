@@ -1,3 +1,6 @@
+### v1.0.6 - September 6, 2020
+* `Client.filter()` now returns an `Image` object
+
 ### v1.0.5 - September 6, 2020
 * Added `spin` back because apparently SRA didnt document it.
 
