@@ -1,3 +1,7 @@
+### v1.0.4 - September 6, 2020
+* Fixed type where you couldn't use the `greyscale` filter
+* Removed `spin` from filter method, unsure how it even got there
+
 ### v1.0.3 - September 5, 2020
 * You can now get the url from methods that return an `Image` object by casting the object to `str`
 
