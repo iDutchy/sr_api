@@ -20,6 +20,12 @@ import sr_api
 
 client = sr_api.Client()
 ```
+Or if you have premium, provide your premium key like this:
+```python
+import sr_api
+
+client = sr_api.Client("premium key here")
+```
  
 For future reference in this documentation: when referring to 'client' we refer to what has been defined above!
  
