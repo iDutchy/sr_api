@@ -11,6 +11,9 @@ class Image:
         self.url = url
         self._http_client = http_client
 
+    def __str__(self):
+        return self.url if self.url is not None else ''
+
     async def read(self):
         return await self._http_client.get(self.url)
 
