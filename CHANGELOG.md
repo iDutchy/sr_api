@@ -1,3 +1,12 @@
+### v1.0.3 - September 5, 2020
+* Methods that return an `Image` object now return the url instead of the object`
+
+### v1.0.2 - September 5, 2020
+* Fixed passing a key in `Client`
+
+### v1.0.1 - September 5, 2020
+* Added "key" to `Client.__slots__`
+
 ### v1.0 - September 5, 2020
 * Renamed `Client.beta()` to `Client.filter()` since its no longer a beta feature
 * Added `whale` and `pikachu` to `Client.get_image()`
