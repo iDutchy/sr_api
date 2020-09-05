@@ -156,7 +156,7 @@ class Client:
         return self.srapi_url("canvas/" + str(option).lower() + "?avatar=" + url)
 
     async def youtube_comment(self, avatar, username, comment):
-        url = self.srapi_url("canvas/youtube-comment" + "?avatar=" + avatar + "&username=" + username + "&comment=" + comment)
+        url = self.srapi_url("canvas/youtube-comment" + "?avatar=" + avatar + "&username=" + username + "&comment=" + comment.replace(" ", "+"))
         return Image(self._http_client, url)
 
     async def view_color(self, color):
