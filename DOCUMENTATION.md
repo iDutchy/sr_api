@@ -181,7 +181,7 @@ Get the definition from a word.
 
 **Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
 
-## *await* client.youtube_comment(avatar, username, comment)
+### *await* client.youtube_comment(avatar, username, comment)
 ---
 Generate a fake youtube comment.
 
