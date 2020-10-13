@@ -1,3 +1,7 @@
+### v1.1.1 - Oktober 14, 2020
+* Fixed the big mistake I made
+* gave access to sr_api.InputError and sr_api.PremiumOnly
+
 ### v1.1.0 - Oktober 14, 2020
 * Fixed client token error
 * Added amongus endpoint
