@@ -1,3 +1,6 @@
+### v1.0.7 - Oktober 14, 2020
+* Fixed client token error
+
 ### v1.0.6 - September 6, 2020
 * `Client.filter()` now returns an `Image` object
 
