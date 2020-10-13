@@ -17,8 +17,6 @@ class PremiumOnly(Exception):
     __slots__ = ()
     pass
 
-https://some-random-api.ml/premium/amongus
-
 class Client:
 
     __slots__ = ("_http_client", "key")
