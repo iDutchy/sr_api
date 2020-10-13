@@ -13,6 +13,12 @@ class InputError(Exception):
     __slots__ = ()
     pass
 
+class PremiumOnly(Exception):
+    __slots__ = ()
+    pass
+
+https://some-random-api.ml/premium/amongus
+
 class Client:
 
     __slots__ = ("_http_client", "key")
@@ -26,6 +32,13 @@ class Client:
 
     def srapi_url(self, path):
         return self.SR_API_BASE + path + (("&key=" + self.key) if self.key else "")
+
+    def amongus(self, username, avatar):
+        if self.key is None:
+            raise PremiumOnly("This endpoint can only be used by premium users.")
+
+        url = self.srapi_url("premium/amongus?username=" + username + "&avatar=" + avatar)
+        return Image(self._http_client, url)
 
     async def get_image(self, name=None):
         options = ("dog", "cat", "panda", "red_panda", "fox", "birb", "koala",
@@ -145,7 +158,7 @@ class Client:
         res = response.get("joke")
         return res
 
-    async def filter(self, option, url):
+    def filter(self, option, url):
         options = (
             'greyscale', 'invert', 'invertgreyscale', 'brightness', 'threshold', 'sepia', 'red', 'green', 'blue', 'blurple',
             'pixelate', 'blur', 'gay', 'glass', 'wasted', 'triggered', 'spin')
@@ -156,11 +169,11 @@ class Client:
         end_url = self.srapi_url("canvas/" + str(option).lower() + "?avatar=" + url)
         return Image(self._http_client, end_url)
 
-    async def youtube_comment(self, avatar, username, comment):
+    def youtube_comment(self, avatar, username, comment):
         url = self.srapi_url("canvas/youtube-comment" + "?avatar=" + avatar + "&username=" + username + "&comment=" + comment.replace(" ", "+"))
         return Image(self._http_client, url)
 
-    async def view_color(self, color):
+    def view_color(self, color):
         color = color.replace("#", '')
         url = self.srapi_url("canvas/colorviewer" + "?hex=" + color)
         return Image(self._http_client, url)

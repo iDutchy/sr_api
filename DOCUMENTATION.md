@@ -33,6 +33,19 @@ For future reference in this documentation: when referring to 'client' we refer 
 ## Using the wrapper:
  
 All available endpoints you can use.
+
+### client.amongus(username, avatar)
+---
+**Premium Endpoint**
+Get a gif from voting someone away as the impostor
+
+**WARNING:** The Image.url returned by this function will very likely not embed! You will have to use Image.read to get the bytes object and work from there! DO NOT SHARE THE URL EITHER SINCE IT CONTAINS YOUR PREMIUM KEY
+
+**Parameters:**\
+**- username** *(string)*: The name of the impostor
+**- avatar** *(string)*: The avatar url of the impostor
+
+**Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
   
 ### *await* client.get_image(animal)
 ---
@@ -171,9 +184,11 @@ Get the definition from a word.
 
 **Return type:** [Definition](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#definition "Definition object attributes") *(object)*
 
-### *await* client.filter(option, url)
+### client.filter(option, url)
 ---
 **Available options:** `gay`, `wasted`, `greyscale`, `invert`, `triggered`, `blur`, `blurple`, `glass`, `pixelate`, `sepia`, `invertgreyscale`, `brightness`, `threshold`, `red`, `green`, `blue`, `spin`
+
+**WARNING:** The Image.url returned by this function will very likely not embed! You will have to use Image.read to get the bytes object and work from there!
 
 **Parameters:**\
 **- option** *(string)*: The type of image manipulation you want to use.\
@@ -181,9 +196,11 @@ Get the definition from a word.
 
 **Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
 
-### *await* client.youtube_comment(avatar, username, comment)
+### client.youtube_comment(avatar, username, comment)
 ---
 Generate a fake youtube comment.
+
+**WARNING:** The Image.url returned by this function will very likely not embed! You will have to use Image.read to get the bytes object and work from there!
 
 **Parameters:**\
 **- avatar** *(string)*: The avatar you want to use.\
@@ -192,9 +209,11 @@ Generate a fake youtube comment.
 
 **Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
 
-### *await* client.view_color(color)
+### client.view_color(color)
 ---
 View a color.
+
+**WARNING:** The Image.url returned by this function will very likely not embed! You will have to use Image.read to get the bytes object and work from there!
 
 **Parameters:**\
 **- color** *(string)*: The color you want an image of. Example: `"123456"`

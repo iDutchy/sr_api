@@ -1,5 +1,9 @@
-### v1.0.7 - Oktober 14, 2020
+### v1.1.0 - Oktober 14, 2020
 * Fixed client token error
+* Added amongus endpoint
+* Client.view_color is no longer a coroutine
+* Client.youtube_comment is no longer a coroutine
+* Client.filter is no longer a coroutine
 
 ### v1.0.6 - September 6, 2020
 * `Client.filter()` now returns an `Image` object
