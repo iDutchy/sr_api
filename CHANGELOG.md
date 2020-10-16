@@ -1,3 +1,6 @@
+## v1.1.3 - Oktober 16, 2020
+* Fix pokedex sprites and evolution line
+
 ### v1.1.2 - Oktober 16, 2020
 * OwOify lyrics with `client.get_lyrics(title, owo=True)`
 * Pass your own `aiohttp.ClientSession` so you dont have to separately close sr_api's session with `client = sr_api.Client(session=mysession)`
