@@ -3,14 +3,15 @@ import aiohttp
 
 from yarl import URL
 
-from sr_api.http import HTTPClient
-from sr_api.image import Image
-from sr_api.pokedex import Pokedex
-from sr_api.minecraft import Minecraft
-from sr_api.lyrics import Lyrics
-from sr_api.meme import Meme
-from sr_api.quote import Quote
-from sr_api.definition import Definition
+from .http import HTTPClient
+from .image import Image
+from .pokedex import Pokedex
+from .minecraft import Minecraft
+from .lyrics import Lyrics
+from .meme import Meme
+from .quote import Quote
+from .definition import Definition
+from .options import Animal, Gif, Filter
 
 class InputError(Exception):
     __slots__ = ()
@@ -38,7 +39,7 @@ class Client:
         url = URL.build(
             scheme="https",
             host="some-random-api.ml",
-            path="/"+path,
+            path="/"+path.lstrip("/"),
             query=query)
 
         return str(url)
@@ -54,7 +55,7 @@ class Client:
         options = ("dog", "cat", "panda", "red_panda", "fox", "birb", "koala",
                    "kangaroo", "racoon", "whale", "pikachu")
 
-        if name.lower() not in options and name is not None:
+        if (name.lower() not in options or not isinstance(name, Animal)) and name is not None:
             raise InputError(name.lower() + " is not a valid option!")
 
         if name is None:
@@ -85,7 +86,7 @@ class Client:
     
     async def get_fact(self, name):
         options = ("cat", "dog", "panda", "koala", "fox", "bird", "racoon", "kangaroo", "elephant", "giraffe", "whale")
-        if not name in options:
+        if not name in options or not isinstance(name, Animal):
             raise InputError(name + " is not a valid option!")
 
         response = await self._http_client.get(self.srapi_url("facts/" + name))
@@ -101,7 +102,7 @@ class Client:
     
     async def get_gif(self, name):
         options = ("wink", "pat", "hug", "face-palm")
-        if not name in options and name != None:
+        if not name in options or not isinstance(name, Gif):
             raise InputError(name + " is not a valid option!")
 
         response = await self._http_client.get(self.srapi_url("animu/" + name))
@@ -186,7 +187,7 @@ class Client:
             'greyscale', 'invert', 'invertgreyscale', 'brightness', 'threshold', 'sepia', 'red', 'green', 'blue', 'blurple',
             'pixelate', 'blur', 'gay', 'glass', 'wasted', 'triggered', 'spin')
 
-        if option.lower() not in options and option is not None:
+        if option.lower() not in options or not isinstance(option, Filter):
             raise InputError(option.lower() + " is not a valid option!")
 
         end_url = self.srapi_url("canvas/" + str(option).lower(), {"avatar": url})

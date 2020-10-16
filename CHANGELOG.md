@@ -1,6 +1,7 @@
 ## v1.1.4 - Oktober 16, 2020
 * Now using yarl to improve url formatting and preventing Error 404 when using premium on some endpoints
 * Added option to search pokemon by ID
+* images, gifs, facts and filters now can be selected with `sr_api.Animal/Gif/filter.<option>` e.g. `sr_api.Animal.cat` (this may or may not become required in the future!)
 
 ## v1.1.3 - Oktober 16, 2020
 * Fix pokedex sprites and evolution line
