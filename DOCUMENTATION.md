@@ -18,7 +18,7 @@ After that, you will have to create the client:
 ```python
 import sr_api
 
-client = sr_api.Client()
+client = sr_api.Client() #Alternatively you can use your own aiohttp.ClientSession by passing session=yoursession to this
 ```
 Or if you have premium, provide your premium key like this:
 ```python
@@ -148,12 +148,13 @@ Decode base64 to text.
 
 **Return type:** string
 
-### *await* client.get_lyrics(title)
+### *await* client.get_lyrics(title, owo=False)
 ---
 Get the lyrics from a song.
 
 **Parameters:**\
 **- title** *(string)*: Title of the song you want to get lyrics from.
+**- owo** *(bool)*: Wheter to OwOify the lyrics. Defaults to `False`
 
 **Return type:** [Lyrics](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#lyrics "Lyrics object attributes") *(object)*
 
@@ -335,6 +336,7 @@ The character the quote is from
 The anime show the character/quote is from
 
 ### Definition
+---
 The object returned from `client.define()`
 
 #### Definition.word

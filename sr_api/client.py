@@ -1,4 +1,5 @@
 import random
+import aiohttp
 
 from sr_api.http import HTTPClient
 from sr_api.image import Image
@@ -24,8 +25,8 @@ class Client:
     # SR API BASE PATH
     SR_API_BASE = "https://some-random-api.ml/"
 
-    def __init__(self, key=None):
-        self._http_client = HTTPClient()
+    def __init__(self, key=None, *, session: aiohttp.ClientSession = None):
+        self._http_client = session or HTTPClient()
         self.key = key
 
     def srapi_url(self, path):
@@ -101,8 +102,8 @@ class Client:
         
         return Minecraft(response)
     
-    async def get_lyrics(self, title):
-        response = await self._http_client.get(self.srapi_url("lyrics?title=" + title.replace(" ", "+")))
+    async def get_lyrics(self, title, owo=False):
+        response = await self._http_client.get(self.srapi_url("lyrics?title=" + title.replace(" ", "+") + ("&cancer=true" if owo else "")))
         
         if "error" in response:
             raise InputError(response.get("error"))
