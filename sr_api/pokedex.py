@@ -19,19 +19,19 @@ class Pokedex:
 
     @property
     def evolutionStage(self):
-        return self.stats.get('evolutionStage')
+        return self.family.get('evolutionStage')
 
     @property
     def evolutionLine(self):
-        return self.stats.get('evolutionLine')
+        return self.family.get('evolutionLine')
 
     @property
     def spriteNormal(self):
-        return self.stats.get('spriteNormal')
+        return self.sprites.get('spriteNormal')
 
     @property
     def spriteAnimated(self):
-        return self.stats.get('spriteAnimated')
+        return self.sprites.get('spriteAnimated')
 
     @property
     def attack(self):
