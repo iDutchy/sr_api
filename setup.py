@@ -3,13 +3,13 @@ from distutils.core import setup
 setup(
   name = 'sr_api',
   packages = ['sr_api'],
-  version = '1.1.2',
+  version = '1.1.3',
   license='MIT',
   description = 'An async wrapper for some-random-api',
   author = 'Niels Steenman',
   author_email = 'ngssteenman@gmail.com',
   url = 'https://github.com/iDutchy/sr_api',
-  download_url = 'https://github.com/iDutchy/sr_api/archive/1.1.2.tar.gz',
+  download_url = 'https://github.com/iDutchy/sr_api/archive/1.1.3.tar.gz',
   keywords = ['wrapper', 'api', 'random'],
   install_requires=['aiohttp'],
   classifiers=[
