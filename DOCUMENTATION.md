@@ -103,12 +103,14 @@ Get the username history and UUID from a minecraft user.
 
 **Return type:** [MCuser](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#mcuser "MCuser object attributes") *(object)*
 
-### *await* client.get_pokemon(pokemon)
+### *await* client.get_pokemon(name=None, pokemon_id=None)
 ---
 Search for a pokemon in the pokedex.
+**Note:** You can search by name OR id, not both!
 
 **Parameters:**\
-**- pokemon** *(string)*: Name of the pokémon.
+**- name** *(string)*: Name of the pokémon.
+**- pokemon_id** *(int)*: ID of the pokemon
 
 **Return type:** [Pokemon](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#pokemon "Pokemon object attributes") *(object)*
 

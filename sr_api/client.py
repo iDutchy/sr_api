@@ -1,7 +1,7 @@
 import random
 import aiohttp
 
-from yarl import URl
+from yarl import URL
 
 from sr_api.http import HTTPClient
 from sr_api.image import Image
@@ -67,8 +67,18 @@ class Client:
 
         return Image(self._http_client, url)
     
-    async def get_pokemon(self, name):
-        response = await self._http_client.get(self.srapi_url("pokedex", {"pokemon": name}))
+    async def get_pokemon(self, name=None, pokemon_id=None):
+        if not name and not pokemon_id:
+            raise InputError("Please provide either a name or an ID!")
+        if name and pokemon_id:
+            raise InputError("Please provide a name or ID, not both!")
+
+        if name:
+            q = {"pokemon": name}
+        elif pokemon_id:
+            q = {"id": pokemon_id}
+
+        response = await self._http_client.get(self.srapi_url("pokedex", q))
         if "error" in response:
             raise InputError("Pokémon " + name + " was not found")
         return Pokedex(response)
