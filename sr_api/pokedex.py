@@ -27,11 +27,11 @@ class Pokedex:
 
     @property
     def spriteNormal(self):
-        return self.sprites.get('spriteNormal')
+        return self.sprites.get('normal')
 
     @property
     def spriteAnimated(self):
-        return self.sprites.get('spriteAnimated')
+        return self.sprites.get('animated')
 
     @property
     def attack(self):

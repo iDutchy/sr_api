@@ -1,6 +1,8 @@
 import random
 import aiohttp
 
+from yarl import URl
+
 from sr_api.http import HTTPClient
 from sr_api.image import Image
 from sr_api.pokedex import Pokedex
@@ -23,20 +25,29 @@ class Client:
     __slots__ = ("_http_client", "key")
 
     # SR API BASE PATH
-    SR_API_BASE = "https://some-random-api.ml/"
+    WEBSITE = "https://some-random-api.ml/"
 
     def __init__(self, key=None, *, session: aiohttp.ClientSession = None):
         self._http_client = session or HTTPClient()
         self.key = key
 
-    def srapi_url(self, path):
-        return self.SR_API_BASE + path + (("&key=" + self.key) if self.key else "")
+    def srapi_url(self, path, query={}):
+        if self.key:
+            query['key'] = self.key
+
+        url = URL.build(
+            scheme="https",
+            host="some-random-api.ml",
+            path="/"+path,
+            query=query)
+
+        return str(url)
 
     def amongus(self, username, avatar):
         if self.key is None:
             raise PremiumOnly("This endpoint can only be used by premium users.")
 
-        url = self.srapi_url("premium/amongus?username=" + username + "&avatar=" + avatar)
+        url = self.srapi_url("premium/amongus", {"username": username, "avatar": avatar})
         return Image(self._http_client, url)
 
     async def get_image(self, name=None):
@@ -57,7 +68,7 @@ class Client:
         return Image(self._http_client, url)
     
     async def get_pokemon(self, name):
-        response = await self._http_client.get(self.srapi_url("pokedex?pokemon=" + name))
+        response = await self._http_client.get(self.srapi_url("pokedex", {"pokemon": name}))
         if "error" in response:
             raise InputError("Pokémon " + name + " was not found")
         return Pokedex(response)
@@ -89,13 +100,13 @@ class Client:
         return Image(self._http_client, url)
     
     async def chatbot(self, text):
-        response = await self._http_client.get(self.srapi_url("chatbot?message=" + text.replace(" ", "+")))
+        response = await self._http_client.get(self.srapi_url("chatbot", {"message": text}))
         res = response.get("response")
         
         return res
         
     async def mc_user(self, name):
-        response = await self._http_client.get(self.srapi_url("mc?username=" + name))
+        response = await self._http_client.get(self.srapi_url("mc", {"username": name}))
         
         if "error" in response:
             raise InputError(response.get("error"))
@@ -103,7 +114,10 @@ class Client:
         return Minecraft(response)
     
     async def get_lyrics(self, title, owo=False):
-        response = await self._http_client.get(self.srapi_url("lyrics?title=" + title.replace(" ", "+") + ("&cancer=true" if owo else "")))
+        q = {"title": title}
+        if owo:
+            q['cancer'] = 'true'
+        response = await self._http_client.get(self.srapi_url("lyrics", q))
         
         if "error" in response:
             raise InputError(response.get("error"))
@@ -111,25 +125,25 @@ class Client:
         return Lyrics(response)
 
     async def encode_binary(self, text):
-        response = await self._http_client.get(self.srapi_url("binary?text=" + text.replace(" ", "+")))
+        response = await self._http_client.get(self.srapi_url("binary", {"text": text}))
         res = response.get("binary")
         
         return res
     
     async def decode_binary(self, text):
-        response = await self._http_client.get(self.srapi_url("binary?decode=" + text.replace(" ", "+")))
+        response = await self._http_client.get(self.srapi_url("binary", {"decode": text}))
         res = response.get("text")
         
         return res
     
     async def encode_base64(self, text):
-        response = await self._http_client.get(self.srapi_url("base64?encode=" + text.replace(" ", "+")))
+        response = await self._http_client.get(self.srapi_url("base64", {"encode": text}))
         res = response.get("base64")
         
         return res
     
     async def decode_base64(self, text):
-        response = await self._http_client.get(self.srapi_url("base64?decode=" + text.replace(" ", "+")))
+        response = await self._http_client.get(self.srapi_url("base64", {"decode": text}))
         res = response.get("text")
         
         return res
@@ -145,7 +159,7 @@ class Client:
         return Quote(response)
     
     async def define(self, text):
-        response = await self._http_client.get(self.srapi_url("dictionary?word=" + text))
+        response = await self._http_client.get(self.srapi_url("dictionary", {"word": text}))
         
         if "error" in response:
             raise InputError(response.get("error") + " " + text)
@@ -165,25 +179,25 @@ class Client:
         if option.lower() not in options and option is not None:
             raise InputError(option.lower() + " is not a valid option!")
 
-        end_url = self.srapi_url("canvas/" + str(option).lower() + "?avatar=" + url)
+        end_url = self.srapi_url("canvas/" + str(option).lower(), {"avatar": url})
         return Image(self._http_client, end_url)
 
     def youtube_comment(self, avatar, username, comment):
-        url = self.srapi_url("canvas/youtube-comment" + "?avatar=" + avatar + "&username=" + username + "&comment=" + comment.replace(" ", "+"))
+        url = self.srapi_url("canvas/youtube-comment", {"avatar": avatar, "username": username, "comment": comment})
         return Image(self._http_client, url)
 
     def view_color(self, color):
         color = color.replace("#", '')
-        url = self.srapi_url("canvas/colorviewer" + "?hex=" + color)
+        url = self.srapi_url("canvas/colorviewer", {"hex": color})
         return Image(self._http_client, url)
 
     async def rgb_to_hex(self, rgb):
-        response = await self._http_client.get(self.srapi_url("canvas/hex?rgb=" + rgb))
+        response = await self._http_client.get(self.srapi_url("canvas/hex", {"rgb": rgb}))
         res = response.get("hex")
         return res
 
     async def hex_to_rgb(self, color_hex):
-        response = await self._http_client.get(self.srapi_url("canvas/rgb?hex=" + color_hex))
+        response = await self._http_client.get(self.srapi_url("canvas/rgb", {"hex": color_hex}))
         return dict(response)
 
     async def close(self):

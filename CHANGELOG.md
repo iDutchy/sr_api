@@ -1,3 +1,6 @@
+## v1.1.4 - Oktober 16, 2020
+* Now using yarl to improve url formatting and preventing Error 404 when using premium on some endpoints
+
 ## v1.1.3 - Oktober 16, 2020
 * Fix pokedex sprites and evolution line
 
