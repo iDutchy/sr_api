@@ -1,7 +1,8 @@
 ### v1.1.2 - Oktober 16, 2020
 * OwOify lyrics with `client.get_lyrics(title, owo=True)`
 * Pass your own `aiohttp.ClientSession` so you dont have to separately close sr_api's session with `client = sr_api.Client(session=mysession)`
-* Fixed a typo in the docs 
+* Fixed a typo in the docs
+* Add examples
 
 ### v1.1.1 - Oktober 14, 2020
 * Fixed the big mistake I made
