@@ -29,7 +29,7 @@ class Client:
     WEBSITE = "https://some-random-api.ml/"
 
     def __init__(self, key=None, *, session: aiohttp.ClientSession = None):
-        self._http_client = session or HTTPClient()
+        self._http_client = HTTPClient(session)
         self.key = key
 
     def srapi_url(self, path, query={}):
