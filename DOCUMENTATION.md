@@ -34,7 +34,7 @@ For future reference in this documentation: when referring to 'client' we refer 
  
 All available endpoints you can use.
 
-### client.amongus(username, avatar, impostor)
+### client.amongus(username, avatar, impostor=False)
 ---
 **Premium Endpoint**
 Get a gif from voting someone away as the impostor
