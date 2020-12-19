@@ -44,11 +44,11 @@ class Client:
 
         return str(url)
 
-    def amongus(self, username, avatar):
+    def amongus(self, username, avatar, impostor = False):
         if self.key is None:
             raise PremiumOnly("This endpoint can only be used by premium users.")
 
-        url = self.srapi_url("premium/amongus", {"username": username, "avatar": avatar})
+        url = self.srapi_url("premium/amongus", {"username": username, "avatar": avatar, "impostor": str(impostor).lower()})
         return Image(self._http_client, url)
 
     async def get_image(self, name=None):
