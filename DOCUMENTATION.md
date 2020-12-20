@@ -47,7 +47,19 @@ Get a gif from voting someone away as the impostor
 **- impostor** *(boolean)* Whether or not the ejected user was an impostor.
 
 **Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
-  
+
+### client.petpet(avatar)
+---
+**Premium Endpoint**
+Get a gif of someone or something being petted.
+
+**WARNING:** The Image.url returned by this function will very likely not embed! You will have to use Image.read to get the bytes object and work from there! DO NOT SHARE THE URL EITHER SINCE IT CONTAINS YOUR PREMIUM KEY
+
+**Parameters:**\
+**- avatar** *(string)*: The avatar url of the petted object.
+
+**Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
+
 ### *await* client.get_image(animal)
 ---
 Get a random animal image.
