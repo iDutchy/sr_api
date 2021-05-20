@@ -2,7 +2,7 @@ class Minecraft:
     __slots__ = ("name", "uuid", "history")
     def __init__(self, data):
         self.name = data.get("username")
-        self.uuid = data.get("full_uuid")
+        self.uuid = data.get("uuid")
         self.history = data.get("name_history")
 
     @property
