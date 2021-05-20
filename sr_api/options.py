@@ -10,6 +10,7 @@ class Animal:
     elephant = "elephant"
     giraffe = "giraffe"
     whale = "whale"
+    birb = "birb"
 
 class Gif:
     wink = "wink"
