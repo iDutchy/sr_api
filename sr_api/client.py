@@ -60,7 +60,7 @@ class Client:
 
     async def get_image(self, name=None):
         options = ("dog", "cat", "panda", "red_panda", "fox", "birb", "koala",
-                   "kangaroo", "racoon", "whale", "pikachu", "bird")
+                   "kangaroo", "racoon", "whale", "pikachu", "bird", "raccoon")
 
         if name.lower() not in options and name is not None:
             raise InputError(name.lower() + " is not a valid option!")
@@ -92,7 +92,7 @@ class Client:
         return Pokedex(response)
     
     async def get_fact(self, name):
-        options = ("cat", "dog", "panda", "koala", "fox", "bird", "racoon", "kangaroo", "elephant", "giraffe", "whale", "birb")
+        options = ("cat", "dog", "panda", "koala", "fox", "bird", "racoon", "kangaroo", "elephant", "giraffe", "whale", "birb", "raccoon")
         if not name.lower() in options:
             raise InputError(name + " is not a valid option!")
 
