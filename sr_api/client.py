@@ -61,7 +61,7 @@ class Client:
     async def get_animal(self, name=None):
         options = ("dog", "cat", "panda", "fox", "red_panda", "koala", "birb", 
                    "bird", "racoon", "raccoon", "kangaroo")
-        response = await self._http_client.get(self.srapi_url("img/" + name.lower() if name else random.choice(options)))
+        response = await self._http_client.get(self.srapi_url("animal/" + name.lower() if name else random.choice(options)))
         return response
 
     async def get_image(self, name=None):
