@@ -57,6 +57,12 @@ class Client:
 
         url = self.srapi_url("premium/petpet", {"avatar": avatar})
         return Image(self._http_client, url)
+    
+    async def get_animal(self, name=None):
+        options = ("dog", "cat", "panda", "fox", "red_panda", "koala", "birb", 
+                   "bird", "racoon", "raccoon", "kangaroo")
+        response = await self._http_client.get(self.srapi_url("img/" + name.lower() if name else random.choice(options)))
+        return response
 
     async def get_image(self, name=None):
         options = ("dog", "cat", "panda", "red_panda", "fox", "birb", "koala",
@@ -203,7 +209,7 @@ class Client:
     def filter(self, option, url):
         options = (
             'greyscale', 'invert', 'invertgreyscale', 'brightness', 'threshold', 'sepia', 'red', 'green', 'blue', 'blurple',
-            'pixelate', 'blur', 'gay', 'glass', 'wasted', 'triggered', 'spin')
+            'pixelate', 'blur', 'gay', 'glass', 'wasted', 'triggered', 'spin', 'jail', 'blurple2')
 
         if option.lower() not in options:
             raise InputError(option.lower() + " is not a valid option!")
@@ -229,8 +235,20 @@ class Client:
         response = await self._http_client.get(self.srapi_url("canvas/rgb", {"hex": color_hex}))
         return dict(response)
     
-    async def lolice(self, avatar):
+    def lolice(self, avatar):
         url = self.srapi_url("canvas/lolice", {"avatar": avatar})
+        return Image(self._http_client, url)
+    
+    def simp_card(self, avatar):
+        url = self.srapi_url("canvas/simpcard", {"avatar": avatar})
+        return Image(self._http_client, url)
+    
+    def horny_card(self, avatar):
+        url = self.srapi_url("canvas/horny", {"avatar": avatar})
+        return Image(self._http_client, url)
+    
+    def its_stupid(self, avatar, dog):
+        url = self.srapi_url("canvas/its-so-stupid", {"avatar": avatar, "dog": dog})
         return Image(self._http_client, url)
     
     async def check_key(self):
@@ -241,6 +259,65 @@ class Client:
         res = response.get("response")
         
         return res
+    
+    def welcome(template, background, action_type, avatar, username, discriminator, guild_name, text_color, member_count):
+            
+        url = self.srapi_url("welcome/img/" + str(template) + '/' + background, {
+            "type": action_type,
+            "avatar": avatar,
+            "username": username,
+            "discriminator": discriminator,
+            "guildName": guild_name,
+            "textcolor": text_color,
+            "memberCount": member_count
+            })
+        
+        return Image(self._http_client, url)
+    
+    def premium_welcome(template, action_type, avatar, username, discriminator, guild_name, text_color, member_count, background_image):
+        if self.key is None:
+            raise PremiumOnly("This endpoint can only be used by premium users.")
+            
+        url = self.srapi_url("premium/welcome/" + str(template), {
+            "type": action_type,
+            "avatar": avatar,
+            "username": username,
+            "discriminator": discriminator,
+            "guildName": guild_name,
+            "textcolor": text_color,
+            "memberCount": member_count,
+            "bg": background_image
+            })
+        
+        return Image(self._http_client, url)
+    
+    def rank_card(template, username, avatar, discriminator, level, current_xp, needed_xp, rank, background_image, background_color=None, text_color=None, current_xp_bar_color=None, bar_color=None):
+        if self.key is None:
+            raise PremiumOnly("This endpoint can only be used by premium users.")
+            
+        q = {
+            "username": username,
+            "avatar": avatar,
+            "discriminator": discriminator,
+            "level": level,
+            "cxp": current_xp,
+            "nxp": needed_xp,
+            "rank": rank,
+            "bg": background_image
+            }
+        
+        if background_color is not None:
+            q += {"cbg": background_color}
+        if text_color is not None:
+            q += {"ctext": text_color}
+        if current_xp_bar_color is not None:
+            q += {"ccxp": current_xp_bar_color}
+        if bar_color is not None:
+            q += {"cbar": bar_color}
+            
+        url = self.srapi_url("premium/rankcard/" + str(template), q)
+            
+        return Image(self._http_client, url)
 
     async def close(self):
         await self._http_client.close()
