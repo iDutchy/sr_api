@@ -117,11 +117,15 @@ class Client:
 
         return Image(self._http_client, url)
     
-    async def chatbot(self, text):
+    async def chatbot(self, text, uid=None):
         if self.key is None:
             raise PremiumOnly("This endpoint can only be used by premium users.")
+            
+        query = {"message": text}
+        if uid:
+            query += {'uid': uid}
 
-        response = await self._http_client.get(self.srapi_url("chatbot", {"message": text}))
+        response = await self._http_client.get(self.srapi_url("chatbot", query))
         res = response.get("response")
         
         return res
