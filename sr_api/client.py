@@ -217,6 +217,10 @@ class Client:
     async def hex_to_rgb(self, color_hex):
         response = await self._http_client.get(self.srapi_url("canvas/rgb", {"hex": color_hex}))
         return dict(response)
+    
+    async def lolice(self, avatar):
+        url = self.srapi_url("canvas/lolice", {"avatar": avatar})
+        return Image(self._http_client, url)
 
     async def close(self):
         await self._http_client.close()
