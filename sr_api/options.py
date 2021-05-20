@@ -11,6 +11,7 @@ class Animal:
     giraffe = "giraffe"
     whale = "whale"
     birb = "birb"
+    raccoon = "raccoon"
 
 class Gif:
     wink = "wink"
