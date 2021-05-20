@@ -224,6 +224,15 @@ class Client:
     async def lolice(self, avatar):
         url = self.srapi_url("canvas/lolice", {"avatar": avatar})
         return Image(self._http_client, url)
+    
+    async def check_key(self):
+        if self.key is None:
+            raise PremiumOnly("This endpoint can only be used by premium users.")
+
+        response = await self._http_client.get(self.srapi_url("key/check"))
+        res = response.get("response")
+        
+        return res
 
     async def close(self):
         await self._http_client.close()
