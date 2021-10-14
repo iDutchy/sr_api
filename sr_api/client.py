@@ -209,7 +209,7 @@ class Client:
     def filter(self, option, url):
         options = (
             'greyscale', 'invert', 'invertgreyscale', 'brightness', 'threshold', 'sepia', 'red', 'green', 'blue', 'blurple',
-            'pixelate', 'blur', 'gay', 'glass', 'wasted', 'triggered', 'spin', 'jail', 'blurple2')
+            'pixelate', 'blur', 'gay', 'glass', 'wasted', 'triggered', 'spin', 'jail', 'blurple2', 'comrade', 'passed')
 
         if option.lower() not in options:
             raise InputError(option.lower() + " is not a valid option!")
@@ -219,6 +219,10 @@ class Client:
 
     def youtube_comment(self, avatar, username, comment):
         url = self.srapi_url("canvas/youtube-comment", {"avatar": avatar, "username": username, "comment": comment})
+        return Image(self._http_client, url)
+
+    def tweet(self, avatar, username, display_name, comment):
+        url = self.srapi_url("canvas/tweet", {"avatar": avatar, "username": username, "displayname": display_name, "comment": comment})
         return Image(self._http_client, url)
 
     def view_color(self, color):
@@ -235,6 +239,11 @@ class Client:
         response = await self._http_client.get(self.srapi_url("canvas/rgb", {"hex": color_hex}))
         return dict(response)
     
+    def color_filter(self, avatar, color):
+        color = color.replace("#", '')
+        url = self.srapi_url("canvas/color", {"avatar": avatar, "color": color})
+        return Image(self._http_client, url)
+
     def lolice(self, avatar):
         url = self.srapi_url("canvas/lolice", {"avatar": avatar})
         return Image(self._http_client, url)
@@ -260,7 +269,7 @@ class Client:
         
         return res
     
-    def welcome(template, background, action_type, avatar, username, discriminator, guild_name, text_color, member_count):
+    def welcome(self, template, background, action_type, avatar, username, discriminator, guild_name, text_color, member_count):
             
         url = self.srapi_url("welcome/img/" + str(template) + '/' + background, {
             "type": action_type,
@@ -274,7 +283,7 @@ class Client:
         
         return Image(self._http_client, url)
     
-    def premium_welcome(template, action_type, avatar, username, discriminator, guild_name, text_color, member_count, background_image):
+    def premium_welcome(self, template, action_type, avatar, username, discriminator, guild_name, text_color, member_count, background_image):
         if self.key is None:
             raise PremiumOnly("This endpoint can only be used by premium users.")
             
@@ -291,7 +300,7 @@ class Client:
         
         return Image(self._http_client, url)
     
-    def rank_card(template, username, avatar, discriminator, level, current_xp, needed_xp, rank, background_image, background_color=None, text_color=None, current_xp_bar_color=None, bar_color=None):
+    def rank_card(self, template, username, avatar, discriminator, level, current_xp, needed_xp, rank, background_image, background_color=None, text_color=None, current_xp_bar_color=None, bar_color=None):
         if self.key is None:
             raise PremiumOnly("This endpoint can only be used by premium users.")
             

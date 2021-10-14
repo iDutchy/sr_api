@@ -225,6 +225,20 @@ Generate a fake youtube comment.
 
 **Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
 
+### client.tweet(avatar, username, display_name, comment)
+---
+Generate a fake tweet.
+
+**WARNING:** The Image.url returned by this function will very likely not embed! You will have to use Image.read to get the bytes object and work from there!
+
+**Parameters:**\
+**- avatar** *(string)*: The avatar you want to use.\
+**- username** *(string)*: The username for the tweet.\
+**- display_name** *(string)*: The display name for the tweet.\
+**- comment** *(string)*: The content of the tweet.
+
+**Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
+
 ### client.view_color(color)
 ---
 View a color.
@@ -253,6 +267,18 @@ Convert HEX to RGB
 **- color_hex** *(string)*: The HEX value you want to convert. Example: `"123456"`
 
 **Return type:** dict ("r", "g", "b")
+
+### client.color_filter(self, avatar, color)
+---
+Apples a color filter on an image.
+
+**WARNING:** The Image.url returned by this function will very likely not embed! You will have to use Image.read to get the bytes object and work from there!
+
+**Parameters:**\
+**- avatar** *(string)*: The avatar you want to use.\
+**- color** *(string)*: The color you want to use.
+
+**Return type:** [Image](https://github.com/iDutchy/sr_api/blob/master/DOCUMENTATION.md#image "Image object attributes") *(object)*
 
 ---
 ---
