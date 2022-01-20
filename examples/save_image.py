@@ -1,14 +1,12 @@
 import asyncio
-from sr_api import Client
+import sr_api
 
 
 async def main():
-    client = Client()
-
-    image = await client.get_image("red_panda")
+    image = await sr_api.get_image("red_panda")
     await image.save("panda.png")
 
-    await client.close()
+    await sr_api.close()
 
 
 asyncio.get_event_loop().run_until_complete(main())

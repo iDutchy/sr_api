@@ -4,7 +4,7 @@ import aiohttp
 class HTTPClient:
     __slots__ = ("session")
 
-    def __init__(self, session=None):
+    def __init__(self, session: Optional[aiohttp.ClientSession] = None):
         self.session = session
 
     # Aiohttp client sessions must be created in async functions
